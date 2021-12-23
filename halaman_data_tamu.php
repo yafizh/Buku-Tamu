@@ -22,36 +22,25 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td style="vertical-align: middle;">1</td>
-                                    <td style="vertical-align: middle;">Nurcholis</td>
-                                    <td style="vertical-align: middle;">07-02-2012</td>
-                                    <td class="text-center">
-                                        <a href="index.php?page=detail_tamu" class="btn btn-info btn-xs"><span class="lnr lnr-eye"></span></a>
-                                        <a href="index.php?page=edit_tamu" class="btn btn-warning btn-xs"><span class="lnr lnr-pencil"></span></a>
-                                        <a href="index.php?page=delete_tamu" class="btn btn-danger btn-xs" onclick="return confirm('Yakin ingin menghapus data ini?')"><span class="lnr lnr-trash"></span></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="vertical-align: middle;">2</td>
-                                    <td style="vertical-align: middle;">Nursahid Arya Suyudi</td>
-                                    <td style="vertical-align: middle;">05-12-2021</td>
-                                    <td class="text-center">
-                                        <a class="btn btn-info btn-xs"><span class="lnr lnr-eye"></span></a>
-                                        <a class="btn btn-warning btn-xs"><span class="lnr lnr-pencil"></span></a>
-                                        <a class="btn btn-danger btn-xs"><span class="lnr lnr-trash"></span></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="vertical-align: middle;">3</td>
-                                    <td style="vertical-align: middle;">Diki Suti Prasetya</td>
-                                    <td style="vertical-align: middle;">05-11-2021</td>
-                                    <td class="text-center">
-                                        <a class="btn btn-info btn-xs"><span class="lnr lnr-eye"></span></a>
-                                        <a class="btn btn-warning btn-xs"><span class="lnr lnr-pencil"></span></a>
-                                        <a class="btn btn-danger btn-xs"><span class="lnr lnr-trash"></span></a>
-                                    </td>
-                                </tr>
+                                <?php
+                                require_once "koneksi.php";
+
+                                $no = 1;
+                                $sql = "SELECT * FROM tabel_buku_tamu";
+                                $result = $mysqli->query($sql);
+                                ?>
+                                <?php while ($row = $result->fetch_assoc()) : ?>
+                                    <tr>
+                                        <td style="vertical-align: middle;"><?= $no++; ?></td>
+                                        <td style="vertical-align: middle;"><?= $row['nama']; ?></td>
+                                        <td style="vertical-align: middle;"><?= $row['tanggal']; ?></td>
+                                        <td class="text-center">
+                                            <a href="index.php?page=detail_tamu&id_tamu=<?= $row['id_tamu']; ?>" class="btn btn-info btn-xs"><span class="lnr lnr-eye"></span></a>
+                                            <a href="index.php?page=edit_tamu&id_tamu=<?= $row['id_tamu']; ?>" class="btn btn-warning btn-xs"><span class="lnr lnr-pencil"></span></a>
+                                            <a href="index.php?page=delete_tamu&id_tamu=<?= $row['id_tamu']; ?>" class="btn btn-danger btn-xs" onclick="return confirm('Yakin ingin menghapus data ini?')"><span class="lnr lnr-trash"></span></a>
+                                        </td>
+                                    </tr>
+                                <?php endwhile; ?>
                             </tbody>
                         </table>
                     </div>
