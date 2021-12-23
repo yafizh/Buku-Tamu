@@ -48,7 +48,7 @@
 							<a href="index.php?page=data_tamu" class="
 							<?php
 							if (isset($_GET['page'])) {
-								if ($_GET['page'] == "buku_tamu") echo "active";
+								if ($_GET['page'] == "data_tamu") echo "active";
 								else if ($_GET['page'] == "detail_tamu") echo "active";
 								else if ($_GET['page'] == "edit_tamu") echo "active";
 							}
@@ -62,7 +62,6 @@
 									<li><a href="" class="">Tamu Minggu ini</a></li>
 									<li><a href="" class="">Tamu Bulan ini</a></li>
 									<li><a href="" class="">Tamu Tahun ini</a></li>
-									<li><a href="" class="">Seluruh Tamu</a></li>
 								</ul>
 							</div>
 						</li>

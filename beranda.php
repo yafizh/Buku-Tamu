@@ -26,7 +26,7 @@
                                 <span class="icon"><i class="lnr lnr-users"></i></span>
                                 <p>
                                     <span class="number">50 Orang</span>
-                                    <span class="title">Bulan ini</span>
+                                    <span class="title">Minggu ini</span>
                                 </p>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                                 <span class="icon"><i class="lnr lnr-users"></i></span>
                                 <p>
                                     <span class="number">300 Orang</span>
-                                    <span class="title">Tahun ini</span>
+                                    <span class="title">Bulan ini</span>
                                 </p>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                                 <span class="icon"><i class="lnr lnr-users"></i></span>
                                 <p>
                                     <span class="number">500 Orang</span>
-                                    <span class="title">Seluruh Pengunjung</span>
+                                    <span class="title">Tahun ini</span>
                                 </p>
                             </div>
                         </div>
