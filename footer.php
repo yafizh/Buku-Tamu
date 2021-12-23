@@ -10,15 +10,50 @@
 <script src="assets/scripts/klorofil-common.js"></script>
 <script>
     $(function() {
-        var data, options;
+        var  options;
 
+        const hari = [
+            "Minggu",
+            "Senin",
+            "Selasa",
+            "Rabu",
+            "Kamis",
+            "Jumat",
+            "Sabtu"
+        ];
+        const hari_ini = (new Date()).getDay();
+        let labels = [];
+        for (let i = 0; i < hari.length; i++) {
+            if (hari_ini == 7) {
+                labels.unshift(hari[i])
+            } else {
+                if (hari_ini - i == -1) {
+                    labels.unshift(hari[hari.length + (hari_ini - i)])
+                } else {
+                    labels.unshift(hari[hari_ini - i])
+                }
+            }
+        }
 
+        <?php require_once "koneksi.php"; ?>
+        <?php
+        $sql = "SELECT count(tanggal) from tabel_buku_tamu WHERE tanggal BETWEEN  (CURRENT_DATE() - INTERVAL 1 WEEK) AND CURRENT_DATE() GROUP BY tanggal;";
+        $result = $mysqli->query($sql);
+        ?>
+
+        let data = [];
+        <?php while ($row = $result->fetch_assoc()) : ?>
+            data.push(parseInt('<?= $row['count(tanggal)']; ?>'))
+        <?php endwhile; ?>
+        do {
+            data.unshift(0);
+        } while(data.length != 7);
         // visits trend charts
         data = {
-            labels: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
+            labels: labels,
             series: [{
                 name: 'series-real',
-                data: [10, 20, 30, 20, 10, 50, 70],
+                data: data,
             }]
         };
 
@@ -38,7 +73,7 @@
             },
             chartPadding: {
                 left: 20,
-                right: 20
+                right: 50
             }
         };
 
