@@ -15,11 +15,11 @@
                     </div>
                     <div class="col-md-4">
                         <form action="" method="POST" style="display: flex; justify-content: end;">
-                            <input type="text" name="keyword" class="form-control" value="<?= isset($_POST['keyword']) ? $_POST['keyword'] : ""; ?>" style="margin-right: 16px;">
+                            <input type="text" name="keyword" placeholder="Nama, Tanggal..." class="form-control" value="<?= isset($_POST['keyword']) ? $_POST['keyword'] : ""; ?>" style="margin-right: 16px;">
                             <button type="submit" name="submit" class="btn btn-primary">Cari</button>
                         </form>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12" style="margin-top: 16px;">
                         <!-- TABLE HOVER -->
                         <table class="table table-hover">
                             <thead>
