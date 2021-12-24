@@ -8,52 +8,56 @@
 <script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
 <script src="assets/vendor/chartist/js/chartist.min.js"></script>
 <script src="assets/scripts/klorofil-common.js"></script>
+<script src="utils.js"></script>
 <script>
     $(function() {
         var  options;
 
-        const hari = [
-            "Minggu",
-            "Senin",
-            "Selasa",
-            "Rabu",
-            "Kamis",
-            "Jumat",
-            "Sabtu"
-        ];
-        const hari_ini = (new Date()).getDay();
         let labels = [];
-        for (let i = 0; i < hari.length; i++) {
+        let data_tamu = [];
+        const hari_ini = (new Date()).getDay();
+        
+        for (let i = 0; i < HARI_DALAM_INDONESIA.length; i++) {
             if (hari_ini == 7) {
-                labels.unshift(hari[i])
+                labels.unshift(HARI_DALAM_INDONESIA[i])
             } else {
                 if (hari_ini - i == -1) {
-                    labels.unshift(hari[hari.length + (hari_ini - i)])
+                    labels.unshift(HARI_DALAM_INDONESIA[HARI_DALAM_INDONESIA.length + (hari_ini - i)])
                 } else {
-                    labels.unshift(hari[hari_ini - i])
+                    labels.unshift(HARI_DALAM_INDONESIA[hari_ini - i])
                 }
             }
         }
 
-        <?php require_once "koneksi.php"; ?>
         <?php
-        $sql = "SELECT count(tanggal) from tabel_buku_tamu WHERE tanggal BETWEEN  (CURRENT_DATE() - INTERVAL 1 WEEK) AND CURRENT_DATE() GROUP BY tanggal;";
+        require_once "koneksi.php"; 
+        $sql = "SELECT 
+                    count(tanggal) AS jumlah_pengunjung
+                FROM 
+                    tabel_buku_tamu 
+                WHERE 
+                    tanggal 
+                BETWEEN  
+                    (CURRENT_DATE() - INTERVAL 1 WEEK) 
+                    AND 
+                    CURRENT_DATE() 
+                GROUP BY tanggal;";
         $result = $mysqli->query($sql);
         ?>
 
-        let data = [];
         <?php while ($row = $result->fetch_assoc()) : ?>
-            data.push(parseInt('<?= $row['count(tanggal)']; ?>'))
+            data_tamu.push(parseInt('<?= $row['jumlah_pengunjung']; ?>'))
         <?php endwhile; ?>
-        do {
-            data.unshift(0);
-        } while(data.length != 7);
+        while(data_tamu.length != 7){
+            data_tamu.unshift(0);
+        }
+
         // visits trend charts
         data = {
             labels: labels,
             series: [{
                 name: 'series-real',
-                data: data,
+                data: data_tamu,
             }]
         };
 
