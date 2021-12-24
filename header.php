@@ -58,10 +58,10 @@
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Laporan</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
-									<li><a href="" class="">Tamu Hari ini</a></li>
-									<li><a href="" class="">Tamu Minggu ini</a></li>
-									<li><a href="" class="">Tamu Bulan ini</a></li>
-									<li><a href="" class="">Tamu Tahun ini</a></li>
+									<li><a href="laporan/laporan_tamu_hari_ini.php">Tamu Hari ini</a></li>
+									<li><a href="">Tamu Minggu ini</a></li>
+									<li><a href="">Tamu Bulan ini</a></li>
+									<li><a href="">Tamu Tahun ini</a></li>
 								</ul>
 							</div>
 						</li>
