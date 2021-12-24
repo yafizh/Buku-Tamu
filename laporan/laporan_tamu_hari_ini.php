@@ -31,14 +31,14 @@
             <img src="../kpu.png" height="100" alt="">
             <div class="text-center">
                 <h2>
-                    KOMISI PEMILIHAN UMUM
+                    NAMA INSTANSI
                     <br>
                     KABUPATEN BANJAR
                 </h2>
                 <p>
                     Alamat: Jalan Mentri 4
                     <br>
-                    Email: kpu@gmail.com
+                    Email: instansi@gmail.com
                 </p>
             </div>
         </div>
@@ -57,7 +57,7 @@
                 <?php
                 $no = 1;
                 require_once "../koneksi.php";
-                $result = $mysqli->query("SELECT * FROM tabel_buku_tamu");
+                $result = $mysqli->query("SELECT * FROM tabel_buku_tamu WHERE tanggal='" . Date("Y-m-d") . "'");
                 ?>
                 <?php if ($result->num_rows) : ?>
                     <?php while ($row = $result->fetch_assoc()) : ?>
