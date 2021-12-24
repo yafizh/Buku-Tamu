@@ -59,9 +59,9 @@
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
 									<li><a href="laporan/laporan_tamu_hari_ini.php">Tamu Hari ini</a></li>
-									<li><a href="">Tamu Minggu ini</a></li>
-									<li><a href="">Tamu Bulan ini</a></li>
-									<li><a href="">Tamu Tahun ini</a></li>
+									<li><a href="laporan/laporan_tamu_bulan_ini.php">Tamu Bulan ini</a></li>
+									<li><a href="laporan/laporan_tamu_tahun_ini.php">Tamu Tahun ini</a></li>
+									<li><a href="laporan/laporan_seluruh_tamu.php">Seluruh Tamu</a></li>
 								</ul>
 							</div>
 						</li>
