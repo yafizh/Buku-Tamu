@@ -47,7 +47,7 @@
                                 $jumlah_data = mysqli_num_rows($data);
                                 $total_halaman = ceil($jumlah_data / $batas);
 
-                                $data_tamu = $mysqli->query("SELECT * FROM tabel_buku_tamu WHERE nama LIKE '%$keyword%' OR tanggal LIKE '%$keyword%' LIMIT $halaman_awal, $batas");
+                                $data_tamu = $mysqli->query("SELECT * FROM tabel_buku_tamu WHERE nama LIKE '%$keyword%' OR tanggal LIKE '%$keyword%' ORDER BY id_tamu LIMIT $halaman_awal, $batas");
                                 $nomor = $halaman_awal + 1;
 
 
