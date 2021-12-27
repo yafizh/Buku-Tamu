@@ -50,7 +50,7 @@
                     <th class="text-center">No</th>
                     <th>Nama</th>
                     <th>Tanggal</th>
-                    <th>Nomor Handphone</th>
+                    <th>Keperluan</th>
                 </tr>
             </thead>
             <tbody>
@@ -65,7 +65,7 @@
                             <td class="text-center"><?= $no++; ?></td>
                             <td><?= $row['nama']; ?></td>
                             <td class="text-center"><?= $row['tanggal']; ?></td>
-                            <td class="text-center"><?= $row['nomor_handphone']; ?></td>
+                            <td class="text-center"><?= $row['keperluan']; ?></td>
                         </tr>
                     <?php endwhile; ?>
                 <?php else : ?>
