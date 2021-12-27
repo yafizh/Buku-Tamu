@@ -16,7 +16,7 @@
         let labels = [];
         let data_tamu = [];
         const hari_ini = (new Date()).getDay();
-        
+
         for (let i = 0; i < HARI_DALAM_INDONESIA.length; i++) {
             if (hari_ini == 7) {
                 labels.unshift(HARI_DALAM_INDONESIA[i])
@@ -24,11 +24,11 @@
                 if (hari_ini - i == -1) {
                     labels.unshift(HARI_DALAM_INDONESIA[HARI_DALAM_INDONESIA.length + (hari_ini - i)])
                 } else {
-                    labels.unshift(HARI_DALAM_INDONESIA[hari_ini - i])
+                    labels.unshift(HARI_DALAM_INDONESIA[hari_ini])
                 }
             }
         }
-
+console.log(labels)
         <?php
         require_once "koneksi.php"; 
         $sql = "SELECT 
