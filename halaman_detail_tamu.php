@@ -55,7 +55,7 @@ if (isset($_GET['id_tamu'])) {
                     </div>
                     <div class="row" style="margin-bottom: 16px;">
                         <div class="col-md-12" style="display: flex; justify-content: end;">
-                            <a type="button" class="btn btn-primary"><i class="lnr lnr-printer"></i> Cetak</a>
+                            <a href="laporan/laporan_detail_tamu.php?id_tamu=<?= $row['id_tamu']; ?>" target="_blank" class="btn btn-primary"><i class="lnr lnr-printer"></i> Cetak</a>
                         </div>
                     </div>
                     <!-- END TABLE HOVER -->
