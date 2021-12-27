@@ -11,26 +11,18 @@
 <script src="utils.js"></script>
 <script>
     $(function() {
-        var  options;
+        var options;
 
         let labels = [];
         let data_tamu = [];
         const hari_ini = (new Date()).getDay();
-
         for (let i = 0; i < HARI_DALAM_INDONESIA.length; i++) {
-            if (hari_ini == 7) {
-                labels.unshift(HARI_DALAM_INDONESIA[i])
-            } else {
-                if (hari_ini - i == -1) {
-                    labels.unshift(HARI_DALAM_INDONESIA[HARI_DALAM_INDONESIA.length + (hari_ini - i)])
-                } else {
-                    labels.unshift(HARI_DALAM_INDONESIA[hari_ini])
-                }
-            }
+            if (hari_ini - i < 0) labels.unshift(HARI_DALAM_INDONESIA[HARI_DALAM_INDONESIA.length + hari_ini - i])
+            else labels.unshift(HARI_DALAM_INDONESIA[hari_ini - i])
         }
-console.log(labels)
+
         <?php
-        require_once "koneksi.php"; 
+        require_once "koneksi.php";
         $sql = "SELECT 
                     count(tanggal) AS jumlah_pengunjung
                 FROM 
@@ -48,7 +40,7 @@ console.log(labels)
         <?php while ($row = $result->fetch_assoc()) : ?>
             data_tamu.push(parseInt('<?= $row['jumlah_pengunjung']; ?>'))
         <?php endwhile; ?>
-        while(data_tamu.length != 7){
+        while (data_tamu.length != 7) {
             data_tamu.unshift(0);
         }
 
