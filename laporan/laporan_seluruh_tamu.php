@@ -68,8 +68,6 @@
                             <td class="text-center"><?= $row['keperluan']; ?></td>
                         </tr>
                     <?php endwhile; ?>
-                <?php else : ?>
-                    <h1>Data Kosong</h1>
                 <?php endif; ?>
                 <?php $result->free_result(); ?>
             </tbody>
