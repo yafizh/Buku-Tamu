@@ -57,7 +57,7 @@
                 <?php
                 $no = 1;
                 require_once "../koneksi.php";
-                $result = $mysqli->query("SELECT * FROM tabel_buku_tamu WHERE YEAR(tanggal)='" . Date("Y") . "'");
+                $result = $mysqli->query("SELECT * FROM tabel_buku_tamu WHERE YEAR(tanggal)='" . Date("Y") . "' ORDER BY id_tamu DESC");
                 ?>
                 <?php if ($result->num_rows) : ?>
                     <?php while ($row = $result->fetch_assoc()) : ?>

@@ -34,7 +34,7 @@
                                 <?php
                                 require_once "koneksi.php";
                                 $keyword = isset($_POST['keyword']) ? $_POST['keyword'] : ""; 
-                                $data_tamu = $mysqli->query("SELECT * FROM tabel_buku_tamu WHERE nama LIKE '%$keyword%' OR tanggal LIKE '%$keyword%' ORDER BY id_tamu");
+                                $data_tamu = $mysqli->query("SELECT * FROM tabel_buku_tamu WHERE nama LIKE '%$keyword%' OR tanggal LIKE '%$keyword%' ORDER BY id_tamu DESC");
                                 $no = 1;
                                 ?>
                                 <?php while ($row = $data_tamu->fetch_assoc()) : ?>
