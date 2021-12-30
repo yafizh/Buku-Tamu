@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laporan Seluruh Tamu</title>
-    <link href="../css/styles.css" rel="stylesheet" />
     <style>
         table {
             width: 100%;
@@ -21,8 +20,14 @@
         tr td:first-child {
             width: 200px;
         }
+
         .text-center {
             text-align: center;
+        }
+
+        #kop {
+            display: flex;
+            justify-content: center;
         }
     </style>
 </head>
@@ -30,17 +35,17 @@
 <body>
     <div class="container">
         <div id="kop" class="d-flex justify-content-center gap-5">
-            <img src="../kpu.png" height="100" alt="">
-            <div class="text-center">
+            <img src="../assets/img/Lambang_Kota_Banjarbaru.png" height="150" alt="">
+            <div class="text-center" style="flex: 1;">
                 <h2>
-                    NAMA INSTANSI
+                    DINAS ARSIP DAN PERPUSTAKAAN DAERAH
                     <br>
-                    KABUPATEN BANJAR
+                    BANJARBARU
                 </h2>
                 <p>
-                    Alamat: Jalan Mentri 4
+                    Alamat: Jl. Wijaya Kusuma No.7
                     <br>
-                    Email: insatnsi@gmail.com
+                    Email: darpusdabjb@banjarbarukota.go.id
                 </p>
             </div>
         </div>
