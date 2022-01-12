@@ -30,7 +30,7 @@ INSERT INTO `tabel_user` (
 ('daus','daus','PEGAWAI');
 
 INSERT INTO `tabel_buku_tamu` (
-    id_tamu,
+    id_user,
     nama,
     alamat,
     tanggal,
