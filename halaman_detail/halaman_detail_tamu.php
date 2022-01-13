@@ -1,9 +1,9 @@
 <?php
 
 if (isset($_GET['id_tamu'])) {
-    require_once "koneksi.php";
+    require_once "database/koneksi.php";
 
-    $sql = "SELECT * FROM tabel_buku_tamu WHERE id_tamu=" . $_GET['id_tamu'];
+    $sql = "SELECT * FROM view_buku_tamu WHERE id_tamu=" . $_GET['id_tamu'];
     $result = $mysqli->query($sql);
     $row = $result->fetch_assoc();
 } else
@@ -30,9 +30,27 @@ if (isset($_GET['id_tamu'])) {
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 16px;">
-                        <div class="col-md-12">
+                        <div class="col-md-4">
                             <label class="form-label">Tanggal Bertamu</label>
                             <input type="date" class="form-control" readonly value="<?= $row['tanggal']; ?>">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Jam Masuk</label>
+                            <input type="time" class="form-control" readonly value="<?= $row['jam_masuk']; ?>">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Jam Keluar</label>
+                            <input type="time" class="form-control" readonly value="<?= $row['jam_keluar']; ?>">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 16px;">
+                        <div class="col-md-6">
+                            <label class="form-label">Nomor Handphone</label>
+                            <input type="number" class="form-control" readonly value="<?= $row['nomor_handphone']; ?>">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Status Kunjungan</label>
+                            <input type="text" class="form-control" readonly value="<?= ucwords(strtolower($row['status_kunjungan'])); ?>">
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 16px;">
@@ -42,13 +60,11 @@ if (isset($_GET['id_tamu'])) {
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 16px;">
-                        <div class="col-md-12">
-                            <label class="form-label">Nomor Handphone</label>
-                            <input type="number" class="form-control" readonly value="<?= $row['nomor_handphone']; ?>">
+                        <div class="col-md-6">
+                            <label class="form-label">Tujuan</label>
+                            <input type="text" class="form-control" readonly value="Ruangan <?= ucwords(strtolower($row['nama_ruangan'])); ?>">
                         </div>
-                    </div>
-                    <div class="row" style="margin-bottom: 16px;">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <label class="form-label">Keperluan</label>
                             <input type="text" class="form-control" readonly value="<?= $row['keperluan']; ?>">
                         </div>

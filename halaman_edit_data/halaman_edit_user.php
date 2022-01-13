@@ -1,35 +1,35 @@
 <?php
 
-if (isset($_GET['id_tamu'])) {
-    require_once "koneksi.php";
+if (isset($_GET['id_user'])) {
+    require_once "database/koneksi.php";
 
-    $sql = "SELECT * FROM tabel_buku_tamu WHERE id_tamu=" . $_GET['id_tamu'];
+    $sql = "SELECT * FROM tabel_user WHERE id_user=" . $_GET['id_user'];
     $result = $mysqli->query($sql);
     $row = $result->fetch_assoc();
 } else
     echo "<script>" .
-        "window.location.href='index.php?page=data_tamu';" .
+        "window.location.href='index.php?page=data_user';" .
         "</script>";
 
 if (isset($_POST['submit'])) {
     $nama = $_POST['nama'];
-    $alamat = $_POST['alamat'];
-    $nomor_handphone = $_POST['nomor_handphone'];
-    $keperluan = $_POST['keperluan'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $status = $_POST['status'];
 
-    $sql = "UPDATE tabel_buku_tamu 
+    $sql = "UPDATE tabel_user 
             SET 
                 nama='$nama', 
-                alamat='$alamat', 
-                nomor_handphone='$nomor_handphone', 
-                keperluan='$keperluan'
+                username='$username', 
+                password='$password', 
+                status='$status'
             WHERE 
-                id_tamu=" . $_GET['id_tamu'];
+                id_user=" . $_GET['id_user'];
 
     if ($mysqli->query($sql) === TRUE) {
-        echo "<script>alert('Tamu berhasil diedit.')</script>";
+        echo "<script>alert('User berhasil diedit.')</script>";
         echo "<script>" .
-            "window.location.href='index.php?page=data_tamu';" .
+            "window.location.href='index.php?page=data_user';" .
             "</script>";
     } else echo "Error: " . $sql . "<br>" . $mysqli->error;
 }
@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
             <!-- OVERVIEW -->
             <div class="panel panel-headline">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Edit Tamu <?= $row['nama']; ?></h3>
+                    <h3 class="panel-title">Edit User <?= $row['nama']; ?></h3>
                     <!-- <p class="panel-subtitle">Periode: 1 Januar 14, 2016 - Oct 21, 2016</p> -->
                 </div>
                 <div class="panel-body">
@@ -55,31 +55,29 @@ if (isset($_POST['submit'])) {
                         </div>
                         <div class="row" style="margin-bottom: 16px;">
                             <div class="col-md-12">
-                                <label for="tanggal" class="form-label">Tanggal Bertamu</label>
-                                <input type="date" class="form-control" readonly id="tanggal" name="tanggal" value="<?= $row['tanggal']; ?>">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username" name="username" value="<?= $row['username']; ?>">
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: 16px;">
                             <div class="col-md-12">
-                                <label for="alamat" class="form-label">Alamat</label>
-                                <input type="text" class="form-control" id="alamat" name="alamat" value="<?= $row['alamat']; ?>">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" value="<?= $row['password']; ?>">
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: 16px;">
                             <div class="col-md-12">
-                                <label for="nomor_handphone" class="form-label">Nomor Handphone</label>
-                                <input type="number" class="form-control" id="nomor_handphone" name="nomor_handphone" value="<?= $row['nomor_handphone']; ?>">
-                            </div>
-                        </div>
-                        <div class="row" style="margin-bottom: 16px;">
-                            <div class="col-md-12">
-                                <label for="keperluan" class="form-label">Keperluan</label>
-                                <input type="text" class="form-control" id="keperluan" name="keperluan" value="<?= $row['keperluan']; ?>">
+                                <label for="status" class="form-label">Status</label>
+                                <select class="form-control" id="status" name="status">
+                                    <option value="" disabled>Pilih Status</option>
+                                    <option <?= ($row['status'] == 'ADMIN' ? 'selected':''); ?> value="ADMIN">Admin</option>
+                                    <option <?= ($row['status'] == 'PEGAWAI' ? 'selected':''); ?> value="PEGAWAI">Pegawai</option>
+                                </select>
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: 16px;">
                             <div class="col-md-12" style="display: flex; justify-content: end;">
-                                <button type="submit" name="submit" class="btn btn-primary">Edit Tamu</button>
+                                <button type="submit" name="submit" class="btn btn-primary">Edit User</button>
                             </div>
                         </div>
                     </form>

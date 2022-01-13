@@ -60,7 +60,7 @@
             <tbody>
                 <?php
                 $no = 1;
-                require_once "../koneksi.php";
+                require_once "../database/koneksi.php";
                 $result = $mysqli->query("SELECT * FROM tabel_buku_tamu WHERE tanggal='" . Date("Y-m-d") . "' ORDER BY id_tamu DESC");
                 ?>
                 <?php if ($result->num_rows) : ?>

@@ -51,7 +51,7 @@
         </div>
 
         <?php
-        require_once "../koneksi.php";
+        require_once "../database/koneksi.php";
         $result = $mysqli->query("SELECT * FROM tabel_buku_tamu WHERE id_tamu=" . $_GET['id_tamu']);
         ?>
         <?php if ($result->num_rows) : ?>

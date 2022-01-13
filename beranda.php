@@ -10,7 +10,7 @@
                     <!-- <p class="panel-subtitle">Periode: 1 Januar 14, 2016 - Oct 21, 2016</p> -->
                 </div>
                 <br>
-                <?php require_once "koneksi.php"; ?>
+                <?php require_once "database/koneksi.php"; ?>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-3">

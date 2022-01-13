@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_GET['id_tamu'])) {
-    require_once "koneksi.php";
+    require_once "database/koneksi.php";
 
     $sql = "DELETE FROM tabel_buku_tamu WHERE id_tamu=" . $_GET['id_tamu'];
     if ($mysqli->query($sql) === TRUE) {

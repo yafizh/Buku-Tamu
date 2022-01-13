@@ -8,7 +8,7 @@
 <script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
 <script src="assets/vendor/chartist/js/chartist.min.js"></script>
 <script src="assets/scripts/klorofil-common.js"></script>
-<script src="utils.js"></script>
+<script src="utils/utils.js"></script>
 <script>
     $(function() {
         var options;
@@ -22,7 +22,7 @@
         }
 
         <?php
-        require_once "koneksi.php";
+        require_once "database/koneksi.php";
         $sql = "SELECT 
                     count(tanggal) AS jumlah_pengunjung
                 FROM 
