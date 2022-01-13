@@ -70,6 +70,12 @@ if (isset($_GET['id_tamu'])) {
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 16px;">
+                        <div class="col-md-12">
+                            <label class="form-label">Kesan Kunjungan</label>
+                            <input type="text" class="form-control" readonly value="<?= $row['kesan_kunjungan']; ?>">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 16px;">
                         <div class="col-md-12" style="display: flex; justify-content: end;">
                             <a href="laporan/laporan_detail_tamu.php?id_tamu=<?= $row['id_tamu']; ?>" target="_blank" class="btn btn-primary"><i class="lnr lnr-printer"></i> Cetak</a>
                         </div>
