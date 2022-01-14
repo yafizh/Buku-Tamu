@@ -22,7 +22,7 @@
                                 else if ($_GET['page'] == "edit_user") echo "active";
                                 else if ($_GET['page'] == "tambah_user") echo "active";
                             }
-                            ?>"><i class="lnr lnr-calendar-full"></i> <span>Data User</span></a>
+                            ?>"><span class="lnr lnr-users"></span> <span>Data User</span></a>
                 </li>
                 <li>
                     <a href="index.php?page=data_ruangan" class="
@@ -32,7 +32,7 @@
                                 else if ($_GET['page'] == "edit_ruangan") echo "active";
                                 else if ($_GET['page'] == "tambah_ruangan") echo "active";
                             }
-                            ?>"><i class="lnr lnr-calendar-full"></i> <span>Data Ruangan</span></a>
+                            ?>"><span class="lnr lnr-apartment"></span> <span>Data Ruangan</span></a>
                 </li>
                 <li>
                     <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Laporan</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
