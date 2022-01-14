@@ -105,11 +105,12 @@ INSERT INTO `tabel_buku_tamu` (
     jam_keluar,
     nomor_handphone,
     keperluan,
-    status_kunjungan  
+    status_kunjungan,
+    kesan_kunjungan 
 ) VALUES 
-(2, 2, 'Nurcholis', 'Astambul', '2021-12-1', '07:00:00', '08:00:00', '111111111', 'Magang', 'TELAH BERKUNJUNG'), 
-(2, 2, 'Nursahid Arya Suyudi', 'Binuang', '2021-11-1', '07:00:00', '08:00:00', '222222222', 'Berkunjung ke PERPUSTAKAAN', 'TELAH BERKUNJUNG'), 
-(2, 2, 'Diki Suti Prasetya', 'Banjarbaru', '2020-05-05', '07:00:00', '08:00:00', '333333333', 'Berkunjung', 'TELAH BERKUNJUNG'), 
-(2, 2, 'Andry', 'Binuang', '2021-12-04', '07:00:00', '08:00:00', '444444444', 'Bertamu', 'TELAH BERKUNJUNG'), 
-(2, 2, 'Rania Nor Aida', 'Astambul', '2021-10-01', '07:00:00', '08:00:00', '555555555', 'Baca Buku', 'TELAH BERKUNJUNG'), 
-(2, 2, 'Ahmad Rifai', 'Martapura', '2021-12-03', '07:00:00', '08:00:00', '666666', 'Magang', 'TELAH BERKUNJUNG');
+(2, 2, 'Nurcholis', 'Astambul', '2021-12-1', '07:00:00', '08:00:00', '111111111', 'Magang', 'TELAH BERKUNJUNG', 'oke'), 
+(2, 2, 'Nursahid Arya Suyudi', 'Binuang', '2021-11-1', '07:00:00', '08:00:00', '222222222', 'Berkunjung ke PERPUSTAKAAN', 'TELAH BERKUNJUNG', 'oke'), 
+(2, 2, 'Diki Suti Prasetya', 'Banjarbaru', '2020-05-05', '07:00:00', '08:00:00', '333333333', 'Berkunjung', 'TELAH BERKUNJUNG', 'oke'), 
+(2, 2, 'Andry', 'Binuang', '2021-12-04', '07:00:00', '08:00:00', '444444444', 'Bertamu', 'TELAH BERKUNJUNG', 'oke'), 
+(2, 2, 'Rania Nor Aida', 'Astambul', '2021-10-01', '07:00:00', '08:00:00', '555555555', 'Baca Buku', 'TELAH BERKUNJUNG', 'oke'), 
+(2, 2, 'Ahmad Rifai', 'Martapura', '2021-12-03', '07:00:00', '08:00:00', '666666', 'Magang', 'TELAH BERKUNJUNG', 'oke');

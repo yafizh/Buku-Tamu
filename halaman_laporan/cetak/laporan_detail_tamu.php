@@ -49,23 +49,27 @@
                 </p>
             </div>
         </div>
-
+        <div class="my-3" style="border-top: 2px solid black; margin-top:12px;"></div>
         <?php
-        require_once "../database/koneksi.php";
-        $result = $mysqli->query("SELECT * FROM tabel_buku_tamu WHERE id_tamu=" . $_GET['id_tamu']);
+        require_once "../../database/koneksi.php";
+        $result = $mysqli->query("SELECT * FROM view_buku_tamu WHERE id_tamu=" . $_GET['id_tamu']);
         ?>
         <?php if ($result->num_rows) : ?>
             <?php $row = $result->fetch_assoc(); ?>
-            <h2 class="text-center my-3" style="border-top: 2px solid black;">Laporan Detail Tamu <?= $row['nama']; ?></h2>
+            <h2 class="text-center">Laporan Detail Tamu <?= $row['nama']; ?></h2>
             <table>
                 <tbody>
                     <tr>
-                        <td>Nama</td>
-                        <td>: <?= $row['nama']; ?></td>
-                    </tr>
-                    <tr>
                         <td>Tanggal</td>
                         <td>: <?= $row['tanggal']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Jam Masuk</td>
+                        <td>: <?= $row['jam_masuk']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Jam Keluar</td>
+                        <td>: <?= $row['jam_keluar']; ?></td>
                     </tr>
                     <tr>
                         <td>Alamat </td>
@@ -76,8 +80,16 @@
                         <td>: <?= $row['nomor_handphone']; ?></td>
                     </tr>
                     <tr>
+                        <td>Tujuan</td>
+                        <td>: Ruang <?= ucwords(strtolower($row['nama_ruangan'])); ?></td>
+                    </tr>
+                    <tr>
                         <td>Keperluan</td>
                         <td>: <?= $row['keperluan']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Kesan Kunjungan</td>
+                        <td>: <?= $row['kesan_kunjungan']; ?></td>
                     </tr>
                     <?php $result->free_result(); ?>
                 </tbody>
