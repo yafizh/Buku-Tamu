@@ -35,7 +35,7 @@
 <body>
     <div class="container">
         <div id="kop" class="d-flex justify-content-center gap-5">
-            <img src="../assets/img/Lambang_Kota_Banjarbaru.png" height="150" alt="">
+            <img src="../../assets/img/Lambang_Kota_Banjarbaru.png" height="150" alt="">
             <div class="text-center" style="flex: 1;">
                 <h2>
                     DINAS ARSIP DAN PERPUSTAKAAN DAERAH
