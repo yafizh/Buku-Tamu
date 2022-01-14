@@ -23,8 +23,8 @@ if (isset($_POST['submit'])) {
 			<div class="left">
 				<div class="content">
 					<div class="header">
-						<div class="logo text-center"><img src="assets/img/logo-dark.png" alt="Klorofil Logo"></div>
-						<p class="lead">Login to your account</p>
+						<div class="logo text-center"><img src="assets/img/Lambang_Kota_Banjarbaru.png" width="100"></div>
+						<p class="lead">DARPUSDA KOTA BANJARBARU</p>
 					</div>
 					<form class="form-auth-small" action="" method="POST">
 						<div class="form-group">
@@ -42,8 +42,8 @@ if (isset($_POST['submit'])) {
 			<div class="right">
 				<div class="overlay"></div>
 				<div class="content text">
-					<h1 class="heading">Free Bootstrap dashboard template</h1>
-					<p>by The Develovers</p>
+					<h1 class="heading">Aplikasi Buku Tamu</h1>
+					<p>Dinas Arsi dan Perpustakaan Daerah Kota Banjarbaru</p>
 				</div>
 			</div>
 			<div class="clearfix"></div>

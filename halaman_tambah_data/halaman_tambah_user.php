@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
                                 <select class="form-control" id="status" name="status">
                                     <option value="" disabled selected>Pilih Status</option>
                                     <option value="ADMIN">Admin</option>
-                                    <option value="PEGAWAI">Pegawai</option>
+                                    <option value="PETUGAS">Petugas</option>
                                 </select>
                             </div>
                         </div>

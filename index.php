@@ -5,7 +5,7 @@ include_once "templates/header.php";
 if (isset($_SESSION['id_user'])) {
     include_once "templates/navbar.php";
     if ($_SESSION['status'] == 'ADMIN') include_once "templates/sidebar/sidebar_admin.php";
-    else include_once "templates/sidebar/sidebar_pegawai.php";
+    else include_once "templates/sidebar/sidebar_petugas.php";
     if (isset($_GET['page'])) {
         switch ($_GET['page']) {
             case "buku_tamu_masuk":

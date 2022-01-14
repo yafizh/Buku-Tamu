@@ -6,7 +6,7 @@ CREATE TABLE `tabel_user` (
     nama VARCHAR(255) NOT NULL,
     username VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    status ENUM('ADMIN','PEGAWAI') NOT NULL,
+    status ENUM('ADMIN','PETUGAS') NOT NULL,
     PRIMARY KEY (id_user)
 );
 
@@ -62,7 +62,7 @@ INSERT INTO `tabel_user` (
     status
 ) VALUES 
 ('Firdaus', 'admin','admin','ADMIN'),
-('Firdaus', 'daus','daus','PEGAWAI');
+('Firdaus', 'daus','daus','PETUGAS');
 
 INSERT INTO `tabel_ruangan` (
     nama_ruangan,
