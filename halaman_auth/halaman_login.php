@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
 				<div class="overlay"></div>
 				<div class="content text">
 					<h1 class="heading">Aplikasi Buku Tamu</h1>
-					<p>Dinas Arsi dan Perpustakaan Daerah Kota Banjarbaru</p>
+					<p>Dinas Arsip dan Perpustakaan Daerah Kota Banjarbaru</p>
 				</div>
 			</div>
 			<div class="clearfix"></div>
