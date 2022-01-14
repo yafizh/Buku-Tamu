@@ -42,11 +42,11 @@
                                 $sebelumnya = $halaman - 1;
                                 $selanjutnya = $halaman + 1;
 
-                                $data = $mysqli->query("SELECT * FROM view_buku_tamu WHERE nama LIKE '%$keyword%' OR tanggal LIKE '%$keyword%'");
+                                $data = $mysqli->query("SELECT * FROM view_buku_tamu WHERE (nama LIKE '%$keyword%' OR tanggal LIKE '%$keyword%') AND status_kunjungan='TELAH BERKUNJUNG'");
                                 $jumlah_data = mysqli_num_rows($data);
                                 $total_halaman = ceil($jumlah_data / $batas);
 
-                                $data_tamu = $mysqli->query("SELECT * FROM view_buku_tamu WHERE nama LIKE '%$keyword%' OR tanggal LIKE '%$keyword%' ORDER BY id_tamu DESC LIMIT $halaman_awal, $batas");
+                                $data_tamu = $mysqli->query("SELECT * FROM view_buku_tamu WHERE (nama LIKE '%$keyword%' OR tanggal LIKE '%$keyword%') AND status_kunjungan='TELAH BERKUNJUNG' ORDER BY id_tamu DESC LIMIT $halaman_awal, $batas");
                                 $nomor = $halaman_awal + 1;
 
                                 $no = 1;
