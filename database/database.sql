@@ -54,6 +54,26 @@ AS
     ON 
         tabel_ruangan.id_ruangan=tabel_buku_tamu.id_ruangan;
 
+CREATE VIEW 
+    `view_jumlah_kunjungan_ruangan` 
+AS 
+    SELECT 
+        tabel_ruangan.*,
+        (SELECT COUNT(id_tamu) FROM tabel_buku_tamu WHERE tabel_buku_tamu.id_ruangan=tabel_ruangan.id_ruangan) AS jumlah_kunjungan 
+    FROM 
+        tabel_ruangan;
+
+CREATE VIEW 
+    `view_jumlah_kunjungan_per_petugas` 
+AS 
+    SELECT 
+        tabel_user.*,
+        (SELECT COUNT(id_tamu) FROM tabel_buku_tamu WHERE tabel_buku_tamu.id_user=tabel_user.id_user) AS jumlah_pengunjung 
+    FROM 
+        tabel_user 
+    WHERE 
+        tabel_user.status = 'PETUGAS';
+
 
 INSERT INTO `tabel_user` (
     nama,

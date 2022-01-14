@@ -34,17 +34,7 @@
                             }
                             ?>"><span class="lnr lnr-apartment"></span> <span>Data Ruangan</span></a>
                 </li>
-                <li>
-                    <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Laporan</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-                    <div id="subPages" class="collapse ">
-                        <ul class="nav">
-                            <li><a href="laporan/laporan_tamu_hari_ini.php" target="_blank">Tamu Hari ini</a></li>
-                            <li><a href="laporan/laporan_tamu_bulan_ini.php" target="_blank">Tamu Bulan ini</a></li>
-                            <li><a href="laporan/laporan_tamu_tahun_ini.php" target="_blank">Tamu Tahun ini</a></li>
-                            <li><a href="laporan/laporan_seluruh_tamu.php" target="_blank">Seluruh Tamu</a></li>
-                        </ul>
-                    </div>
-                </li>
+                <li><a href="index.php?page=laporan" class="<?= isset($_GET['page']) ? (($_GET['page'] == "laporan") ? "active" : "")  : "" ?>"><span class="lnr lnr-file-empty"></span> <span>Laporan</span></a></li>
             </ul>
         </nav>
     </div>

@@ -1,3 +1,6 @@
+<?php
+require_once "../../database/koneksi.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laporan Tamu Hari ini</title>
+    <title>Laporan Ruangan</title>
     <style>
         table,
         th,
@@ -32,7 +35,7 @@
 <body>
     <div class="container">
         <div id="kop" class="d-flex justify-content-center gap-5">
-            <img src="../assets/img/Lambang_Kota_Banjarbaru.png" height="150" alt="">
+            <img src="../../assets/img/Lambang_Kota_Banjarbaru.png" height="150" alt="">
             <div class="text-center" style="flex: 1;">
                 <h2>
                     DINAS ARSIP DAN PERPUSTAKAAN DAERAH
@@ -46,30 +49,27 @@
                 </p>
             </div>
         </div>
-
-        <h2 class="text-center my-3" style="border-top: 2px solid black;">Laporan Tamu Hari ini</h2>
+        <div class="my-3" style="border-top: 2px solid black; margin-top:12px;"></div>
+        <h2 class="text-center">Laporan Ruangan</h2>
         <table>
             <thead>
                 <tr>
                     <th class="text-center">No</th>
-                    <th>Nama</th>
-                    <th>Tanggal</th>
-                    <th>Keperluan</th>
+                    <th>Nama Ruangan</th>
+                    <th>Keterangan</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 $no = 1;
-                require_once "../database/koneksi.php";
-                $result = $mysqli->query("SELECT * FROM tabel_buku_tamu WHERE tanggal='" . Date("Y-m-d") . "' ORDER BY id_tamu DESC");
+                $result = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama_ruangan");
                 ?>
                 <?php if ($result->num_rows) : ?>
                     <?php while ($row = $result->fetch_assoc()) : ?>
                         <tr>
                             <td class="text-center"><?= $no++; ?></td>
-                            <td><?= $row['nama']; ?></td>
-                            <td class="text-center"><?= $row['tanggal']; ?></td>
-                            <td class="text-center"><?= $row['keperluan']; ?></td>
+                            <td><?= $row['nama_ruangan']; ?></td>
+                            <td><?= $row['keterangan']; ?></td>
                         </tr>
                     <?php endwhile; ?>
                 <?php endif; ?>

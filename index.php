@@ -56,6 +56,9 @@ if (isset($_SESSION['id_user'])) {
             case "logout":
                 include_once "halaman_auth/halaman_logout.php";
                 break;
+            case "laporan":
+                include_once "halaman_laporan/halaman_laporan.php";
+                break;
             default:
                 include_once "beranda.php";
         }
