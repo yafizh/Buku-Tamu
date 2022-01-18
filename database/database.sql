@@ -31,7 +31,8 @@ CREATE TABLE `tabel_buku_tamu` (
     status_kunjungan ENUM('SEDANG BERKUNJUNG', 'TELAH BERKUNJUNG') NOT NULL,
     kesan_kunjungan TEXT NOT NULL,
     PRIMARY KEY (id_tamu),
-    FOREIGN KEY (id_user) REFERENCES tabel_user (id_user)
+    FOREIGN KEY (id_user) REFERENCES tabel_user (id_user),
+    FOREIGN KEY (id_ruangan) REFERENCES tabel_ruangan (id_ruangan)
 );
 
 CREATE VIEW 

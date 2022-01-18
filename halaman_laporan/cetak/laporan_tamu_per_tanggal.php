@@ -64,6 +64,7 @@ $id_user = $_POST['id_user'];
                     <th class="text-center">No</th>
                     <th>Nama</th>
                     <th>Tanggal</th>
+                    <th>Keperluan</th>
                     <th>Tujuan</th>
                     <th>Petugas</th>
                 </tr>
@@ -81,7 +82,7 @@ $id_user = $_POST['id_user'];
                             <td class="text-center"><?= $row['tanggal']; ?></td>
                             <td class="text-center"><?= $row['keperluan']; ?></td>
                             <td class="text-center"><?= $row['nama_ruangan']; ?></td>
-                            <td class="text-center"><?= $row['nama_petugas']; ?></td>
+                            <td class="text-center"><?= $row['nama_user']; ?></td>
                         </tr>
                     <?php endwhile; ?>
                 <?php endif; ?>
