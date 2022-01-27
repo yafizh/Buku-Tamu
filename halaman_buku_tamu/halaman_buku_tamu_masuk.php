@@ -3,6 +3,7 @@ require_once "database/koneksi.php";
 if (isset($_POST['submit'])) {
     $id_user = $_SESSION['id_user'];
     $id_ruangan = $_POST['id_ruangan'];
+    $nomor_identitas = $_POST['nomor_identitas'];
     $nama = $_POST['nama'];
     $tanggal = $_POST['tanggal'];
     $jam_masuk = $_POST['jam_masuk'];
@@ -16,6 +17,7 @@ if (isset($_POST['submit'])) {
         INSERT INTO tabel_buku_tamu (
             id_user, 
             id_ruangan, 
+            nomor_identitas, 
             nama, 
             tanggal, 
             jam_masuk, 
@@ -26,6 +28,7 @@ if (isset($_POST['submit'])) {
         ) VALUES (
             '$id_user', 
             '$id_ruangan', 
+            '$nomor_identitas', 
             '$nama', 
             '$tanggal',
             '$jam_masuk',
@@ -55,8 +58,14 @@ if (isset($_POST['submit'])) {
                     <form action="" method="POST">
                         <div class="row" style="margin-bottom: 16px;">
                             <div class="col-md-12">
+                                <label for="nomor_identitas" class="form-label">Nomor Identitas</label>
+                                <input type="text" autofocus class="form-control" placeholder="NIK, Nomor SIM, NIM..." id="nomor_identitas" name="nomor_identitas" required>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 16px;">
+                            <div class="col-md-12">
                                 <label for="nama" class="form-label">Nama</label>
-                                <input type="text" autofocus class="form-control" id="nama" name="nama" required>
+                                <input type="text" class="form-control" id="nama" name="nama" required>
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: 16px;">

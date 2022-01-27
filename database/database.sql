@@ -21,6 +21,7 @@ CREATE TABLE `tabel_buku_tamu` (
     id_tamu INT NOT NULL AUTO_INCREMENT,
     id_user INT NOT NULL,
     id_ruangan INT NOT NULL,
+    nomor_identitas VARCHAR(255) NOT NULL,
     nama VARCHAR(255) NOT NULL,
     tanggal DATE NOT NULL,
     jam_masuk TIME NOT NULL,
@@ -99,6 +100,7 @@ INSERT INTO `tabel_ruangan` (
 INSERT INTO `tabel_buku_tamu` (
     id_user,
     id_ruangan,
+    nomor_identitas,
     nama,
     alamat,
     tanggal,
@@ -109,9 +111,9 @@ INSERT INTO `tabel_buku_tamu` (
     status_kunjungan,
     kesan_kunjungan 
 ) VALUES 
-(2, 2, 'Nurcholis', 'Astambul', '2021-12-1', '07:00:00', '08:00:00', '111111111', 'Magang', 'TELAH BERKUNJUNG', 'oke'), 
-(2, 2, 'Nursahid Arya Suyudi', 'Binuang', '2021-11-1', '07:00:00', '08:00:00', '222222222', 'Berkunjung ke PERPUSTAKAAN', 'TELAH BERKUNJUNG', 'oke'), 
-(2, 2, 'Diki Suti Prasetya', 'Banjarbaru', '2020-05-05', '07:00:00', '08:00:00', '333333333', 'Berkunjung', 'TELAH BERKUNJUNG', 'oke'), 
-(2, 2, 'Andry', 'Binuang', '2021-12-04', '07:00:00', '08:00:00', '444444444', 'Bertamu', 'TELAH BERKUNJUNG', 'oke'), 
-(2, 2, 'Rania Nor Aida', 'Astambul', '2021-10-01', '07:00:00', '08:00:00', '555555555', 'Baca Buku', 'TELAH BERKUNJUNG', 'oke'), 
-(2, 2, 'Ahmad Rifai', 'Martapura', '2021-12-03', '07:00:00', '08:00:00', '666666', 'Magang', 'TELAH BERKUNJUNG', 'oke');
+(2, 2, '18631111', 'Nurcholis', 'Astambul', '2021-12-1', '07:00:00', '08:00:00', '111111111', 'Magang', 'TELAH BERKUNJUNG', 'oke'), 
+(2, 2, '18631112', 'Nursahid Arya Suyudi', 'Binuang', '2021-11-1', '07:00:00', '08:00:00', '222222222', 'Berkunjung ke PERPUSTAKAAN', 'TELAH BERKUNJUNG', 'oke'), 
+(2, 2, '18631113', 'Diki Suti Prasetya', 'Banjarbaru', '2020-05-05', '07:00:00', '08:00:00', '333333333', 'Berkunjung', 'TELAH BERKUNJUNG', 'oke'), 
+(2, 2, '18631114', 'Andry', 'Binuang', '2021-12-04', '07:00:00', '08:00:00', '444444444', 'Bertamu', 'TELAH BERKUNJUNG', 'oke'), 
+(2, 2, '18631114', 'Rania Nor Aida', 'Astambul', '2021-10-01', '07:00:00', '08:00:00', '555555555', 'Baca Buku', 'TELAH BERKUNJUNG', 'oke'), 
+(2, 2, '18631115', 'Ahmad Rifai', 'Martapura', '2021-12-03', '07:00:00', '08:00:00', '666666', 'Magang', 'TELAH BERKUNJUNG', 'oke');

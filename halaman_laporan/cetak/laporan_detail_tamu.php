@@ -60,6 +60,10 @@
             <table>
                 <tbody>
                     <tr>
+                        <td>Nomor Identitas</td>
+                        <td>: <?= $row['nomor_identitas']; ?></td>
+                    </tr>
+                    <tr>
                         <td>Tanggal</td>
                         <td>: <?= $row['tanggal']; ?></td>
                     </tr>

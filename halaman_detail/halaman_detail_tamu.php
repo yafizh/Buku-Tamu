@@ -25,6 +25,12 @@ if (isset($_GET['id_tamu'])) {
                 <div class="panel-body">
                     <div class="row" style="margin-bottom: 16px;">
                         <div class="col-md-12">
+                            <label class="form-label">Nomor Identitas</label>
+                            <input type="text" class="form-control" readonly value="<?= $row['nomor_identitas']; ?>">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 16px;">
+                        <div class="col-md-12">
                             <label class="form-label">Nama</label>
                             <input type="text" class="form-control" readonly value="<?= $row['nama']; ?>">
                         </div>
