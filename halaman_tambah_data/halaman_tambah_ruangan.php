@@ -3,8 +3,6 @@ require_once "database/koneksi.php";
 if (isset($_POST['submit'])) {
     $nama_ruangan = $_POST['nama_ruangan'];
     $keterangan = $_POST['keterangan'];
-    $password = $_POST['password'];
-    $status = $_POST['status'];
 
     $sql = "
         INSERT INTO tabel_ruangan (
