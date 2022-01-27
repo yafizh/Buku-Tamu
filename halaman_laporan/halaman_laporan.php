@@ -144,6 +144,118 @@
                     <!-- END PANEL NO CONTROLS -->
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <!-- PANEL NO CONTROLS -->
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Laporan Agenda Per Tanggal</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form action="halaman_laporan/cetak/laporan_agenda_per_tanggal.php" method="POST" target="_blank">
+                                <div class="row" style="margin-bottom: 16px;">
+                                    <div class="col-md-6">
+                                        <label for="">Tanggal</label>
+                                        <input type="date" name="tanggal" class="form-control" value="<?= Date('Y-m-d'); ?>">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="id_ruangan" class="form-label">Tempat</label>
+                                        <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama_ruangan"); ?>
+                                        <select class="form-control" id="id_ruangan" name="id_ruangan">
+                                            <option value="" selected>Semua Ruangan</option>
+                                            <?php while ($row = $data_ruangan->fetch_assoc()) : ?>
+                                                <option value="<?= $row['id_ruangan']; ?>"><?= ucwords(strtolower($row['nama_ruangan'])); ?></option>
+                                            <?php endwhile; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="form-label" style="visibility: hidden;">Tombol</label>
+                                        <button type="submit" name="submit" class="form-control btn btn-primary">Cetak Laporan</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- END PANEL NO CONTROLS -->
+                </div>
+
+                <div class="col-md-4">
+                    <!-- PANEL NO CONTROLS -->
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Laporan Agenda Per Bulan</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form action="halaman_laporan/cetak/laporan_agenda_per_bulan.php" method="POST" target="_blank">
+                                <div class="row" style="margin-bottom: 16px;">
+                                    <div class="col-md-6">
+                                        <label for="">Bulan</label>
+                                        <input type="month" name="bulan" class="form-control" value="<?= Date('Y-m'); ?>">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="id_ruangan" class="form-label">Tempat</label>
+                                        <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama_ruangan"); ?>
+                                        <select class="form-control" id="id_ruangan" name="id_ruangan">
+                                            <option value="" selected>Semua Ruangan</option>
+                                            <?php while ($row = $data_ruangan->fetch_assoc()) : ?>
+                                                <option value="<?= $row['id_ruangan']; ?>"><?= ucwords(strtolower($row['nama_ruangan'])); ?></option>
+                                            <?php endwhile; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="form-label" style="visibility: hidden;">Tombol</label>
+                                        <button type="submit" name="submit" class="form-control btn btn-primary">Cetak Laporan</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- END PANEL NO CONTROLS -->
+                </div>
+
+                <div class="col-md-4">
+                    <!-- PANEL NO CONTROLS -->
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Laporan Agenda Per Tahun</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form action="halaman_laporan/cetak/laporan_agenda_per_tahun.php" method="POST" target="_blank">
+                                <div class="row" style="margin-bottom: 16px;">
+                                    <div class="col-md-6">
+                                        <label for="">Tahun</label>
+                                        <input type="number" name="tahun" class="form-control" value="<?= Date('Y'); ?>">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="id_ruangan" class="form-label">Tempat</label>
+                                        <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama_ruangan"); ?>
+                                        <select class="form-control" id="id_ruangan" name="id_ruangan">
+                                            <option value="" selected>Semua Ruangan</option>
+                                            <?php while ($row = $data_ruangan->fetch_assoc()) : ?>
+                                                <option value="<?= $row['id_ruangan']; ?>"><?= ucwords(strtolower($row['nama_ruangan'])); ?></option>
+                                            <?php endwhile; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="form-label" style="visibility: hidden;">Tombol</label>
+                                        <button type="submit" name="submit" class="form-control btn btn-primary">Cetak Laporan</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- END PANEL NO CONTROLS -->
+                </div>
+            </div>
+
+
             <div class="row">
                 <div class="col-md-4">
                     <!-- PANEL NO CONTROLS -->

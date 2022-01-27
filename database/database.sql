@@ -17,6 +17,18 @@ CREATE TABLE `tabel_ruangan` (
     PRIMARY KEY (id_ruangan)
 );
 
+CREATE TABLE `tabel_agenda` (
+    id_agenda INT NOT NULL AUTO_INCREMENT,
+    id_ruangan INT NOT NULL,
+    tanggal DATE NOT NULL,
+    waktu TIME NOT NULL,
+    kegiatan TEXT NOT NULL,
+    pejabat VARCHAR(255) NULL,
+    fotografer VARCHAR(255) NULL,
+    PRIMARY KEY (id_agenda),
+    FOREIGN KEY (id_ruangan) REFERENCES tabel_ruangan (id_ruangan)
+);
+
 CREATE TABLE `tabel_buku_tamu` (
     id_tamu INT NOT NULL AUTO_INCREMENT,
     id_user INT NOT NULL,
@@ -55,6 +67,19 @@ AS
         tabel_ruangan 
     ON 
         tabel_ruangan.id_ruangan=tabel_buku_tamu.id_ruangan;
+
+CREATE VIEW 
+    `view_agenda` 
+AS 
+    SELECT 
+        tabel_agenda.*,
+        tabel_ruangan.nama_ruangan 
+    FROM 
+        tabel_agenda 
+    INNER JOIN 
+        tabel_ruangan 
+    ON 
+        tabel_agenda.id_ruangan=tabel_ruangan.id_ruangan;
 
 CREATE VIEW 
     `view_jumlah_kunjungan_ruangan` 

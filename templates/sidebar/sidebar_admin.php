@@ -34,6 +34,14 @@
                             }
                             ?>"><span class="lnr lnr-apartment"></span> <span>Data Ruangan</span></a>
                 </li>
+                <li><a href="index.php?page=data_agenda" class="
+                            <?php
+                            if (isset($_GET['page'])) {
+                                if ($_GET['page'] == "data_agenda") echo "active";
+                                else if ($_GET['page'] == "tambah_agenda") echo "active";
+                                else if ($_GET['page'] == "edit_agenda") echo "active";
+                            }
+                            ?>"><i class="lnr lnr-book"></i> <span>Agenda</span></a></li>
                 <li><a href="index.php?page=laporan" class="<?= isset($_GET['page']) ? (($_GET['page'] == "laporan") ? "active" : "")  : "" ?>"><span class="lnr lnr-file-empty"></span> <span>Laporan</span></a></li>
             </ul>
         </nav>
