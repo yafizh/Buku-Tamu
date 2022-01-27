@@ -36,15 +36,19 @@ if (isset($_GET['id_tamu'])) {
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 16px;">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
+                            <label for="hari" class="form-label">Hari</label>
+                            <input type="text" class="form-control" readonly id="hari" name="hari" value="<?= HARI_DALAM_INDONESIA[Date("w", strtotime($row['tanggal']))]; ?>">
+                        </div>
+                        <div class="col-md-3">
                             <label class="form-label">Tanggal Bertamu</label>
                             <input type="date" class="form-control" readonly value="<?= $row['tanggal']; ?>">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <label class="form-label">Jam Masuk</label>
                             <input type="time" class="form-control" readonly value="<?= $row['jam_masuk']; ?>">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <label class="form-label">Jam Keluar</label>
                             <input type="time" class="form-control" readonly value="<?= $row['jam_keluar']; ?>">
                         </div>

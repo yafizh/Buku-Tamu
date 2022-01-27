@@ -69,11 +69,15 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: 16px;">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
+                                <label for="hari" class="form-label">Hari</label>
+                                <input type="text" class="form-control" readonly id="hari" name="hari" value="<?= HARI_DALAM_INDONESIA[Date("w")]; ?>">
+                            </div>
+                            <div class="col-md-4">
                                 <label for="tanggal" class="form-label">Tanggal Bertamu</label>
                                 <input type="date" class="form-control" readonly id="tanggal" name="tanggal" value="<?= Date("Y-m-d"); ?>">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <label for="jam_masuk" class="form-label">Jam Masuk</label>
                                 <input type="time" class="form-control" readonly id="jam_masuk" name="jam_masuk" value="<?= Date("H:i"); ?>">
                             </div>

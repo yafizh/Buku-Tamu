@@ -2,6 +2,7 @@
 session_start();
 date_default_timezone_set("Asia/Kuala_Lumpur");
 include_once "templates/header.php";
+include_once "utils/utils.php";
 if (isset($_SESSION['id_user'])) {
     include_once "templates/navbar.php";
     if ($_SESSION['status'] == 'ADMIN') include_once "templates/sidebar/sidebar_admin.php";
