@@ -115,12 +115,20 @@ INSERT INTO `tabel_ruangan` (
     nama_ruangan,
     keterangan 
 ) VALUES 
-('PERPUSTAKAAN', 'Ruangan Perpustakaan'),
-('SEKRETARIAT', 'Ruangan Sekretariat'),
-('KEPALA DINAS', 'Ruangan Kepala Dinas'),
-('BAGIAN UMUM DAN KEPEGAWAIN', 'Ruangan Bagian Umum dan Kepegawain'),
-('BAGIAN PERENCANAAN DAN KEUANGAN', 'Ruangan Bagian Perencanaan dan Keuangan'),
-('KEARSIPAN', 'Ruangan Kearsipan');
+('Umum dan Kepegawaian', 'Ruangan Umum dan Kepegawaian'),
+('Perencanaan dan Keuangan', 'Ruanga Perencanaan dan Keuangan'),
+('Sekretaris', 'Ruanga Sekretaris'),
+('Fungsional', 'Ruanga Fungsional'),
+('Ruanga Kepala Dinas', 'Ruanga Ruanga Kepala Dinas'),
+('Studio Mini', 'Ruanga Studio Mini'),
+('Musholla', 'Ruanga Musholla'),
+('Wakapitu', 'Ruanga Wakapitu'),
+('Aula', 'Ruanga Aula'),
+('Brailie Corner', 'Ruanga Brailie Corner'),
+('Perpustakaan Keliling', 'Ruanga Perpustakaan Keliling'),
+('Sirkulasi', 'Ruanga Sirkulasi'),
+('Ruangan Anak', 'Ruanga Ruangan Anak'),
+('Depo Arsip', 'Ruanga Depo Arsip');
 
 INSERT INTO `tabel_buku_tamu` (
     id_user,
