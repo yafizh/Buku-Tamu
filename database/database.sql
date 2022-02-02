@@ -1,6 +1,15 @@
 CREATE DATABASE `db_buku_tamu`;
 USE `db_buku_tamu`;
 
+CREATE TABLE `tabel_dokumen` (
+    id_dokumen INT NOT NULL AUTO_INCREMENT,
+    nomor_dokumen VARCHAR(255) NOT NULL,
+    nama_dokumen VARCHAR(255) NOT NULL,
+    isi_dokumen TEXT NOT NULL,
+    keterangan ENUM('TERLAKSANA', 'BELUM TERLAKSANA', 'MASIH AGENDA') NOT NULL,
+    PRIMARY KEY(id_dokumen)
+);
+
 CREATE TABLE `tabel_user` (
     id_user INT NOT NULL AUTO_INCREMENT,
     nama VARCHAR(255) NOT NULL,
@@ -116,19 +125,19 @@ INSERT INTO `tabel_ruangan` (
     keterangan 
 ) VALUES 
 ('Umum dan Kepegawaian', 'Ruangan Umum dan Kepegawaian'),
-('Perencanaan dan Keuangan', 'Ruanga Perencanaan dan Keuangan'),
-('Sekretaris', 'Ruanga Sekretaris'),
-('Fungsional', 'Ruanga Fungsional'),
-('Ruanga Kepala Dinas', 'Ruanga Ruanga Kepala Dinas'),
-('Studio Mini', 'Ruanga Studio Mini'),
-('Musholla', 'Ruanga Musholla'),
-('Wakapitu', 'Ruanga Wakapitu'),
-('Aula', 'Ruanga Aula'),
-('Brailie Corner', 'Ruanga Brailie Corner'),
-('Perpustakaan Keliling', 'Ruanga Perpustakaan Keliling'),
-('Sirkulasi', 'Ruanga Sirkulasi'),
-('Ruangan Anak', 'Ruanga Ruangan Anak'),
-('Depo Arsip', 'Ruanga Depo Arsip');
+('Perencanaan dan Keuangan', 'Ruangan Perencanaan dan Keuangan'),
+('Sekretaris', 'Ruangan Sekretaris'),
+('Fungsional', 'Ruangan Fungsional'),
+('Ruang Kepala Dinas', 'Ruangan Kepala Dinas'),
+('Studio Mini', 'Ruangan Studio Mini'),
+('Musholla', 'Ruangan Musholla'),
+('Wakapitu', 'Ruangan Wakapitu'),
+('Aula', 'Ruangan Aula'),
+('Brailie Corner', 'Ruangan Brailie Corner'),
+('Perpustakaan Keliling', 'Ruangan Perpustakaan Keliling'),
+('Sirkulasi', 'Ruangan Sirkulasi'),
+('Ruangan Anak', 'Ruangan Anak'),
+('Depo Arsip', 'Ruangan Depo Arsip');
 
 INSERT INTO `tabel_buku_tamu` (
     id_user,

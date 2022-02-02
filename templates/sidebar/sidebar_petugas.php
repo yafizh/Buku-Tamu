@@ -24,6 +24,14 @@
                                 else if ($_GET['page'] == "edit_agenda") echo "active";
                             }
                             ?>"><i class="lnr lnr-book"></i> <span>Agenda</span></a></li>
+                <li><a href="index.php?page=data_dokumen" class="
+                            <?php
+                            if (isset($_GET['page'])) {
+                                if ($_GET['page'] == "data_dokumen") echo "active";
+                                else if ($_GET['page'] == "tambah_dokumen") echo "active";
+                                else if ($_GET['page'] == "edit_dokumen") echo "active";
+                            }
+                            ?>"><i class="lnr lnr-book"></i> <span>Dokumen</span></a></li>
             </ul>
         </nav>
     </div>

@@ -24,6 +24,9 @@ if (isset($_SESSION['id_user'])) {
             case "tambah_agenda":
                 include_once "halaman_tambah_data/halaman_tambah_agenda.php";
                 break;
+            case "tambah_dokumen":
+                include_once "halaman_tambah_data/halaman_tambah_dokumen.php";
+                break;
             case "data_tamu":
                 include_once "halaman_tampil_data/halaman_data_tamu.php";
                 break;
@@ -35,6 +38,9 @@ if (isset($_SESSION['id_user'])) {
                 break;
             case "data_agenda":
                 include_once "halaman_tampil_data/halaman_data_agenda.php";
+                break;
+            case "data_dokumen":
+                include_once "halaman_tampil_data/halaman_data_dokumen.php";
                 break;
             case "detail_tamu":
                 include_once "halaman_detail/halaman_detail_tamu.php";
@@ -51,6 +57,9 @@ if (isset($_SESSION['id_user'])) {
             case "edit_agenda":
                 include_once "halaman_edit_data/halaman_edit_agenda.php";
                 break;
+            case "edit_dokumen":
+                include_once "halaman_edit_data/halaman_edit_dokumen.php";
+                break;
             case "delete_tamu":
                 include_once "halaman_delete_data/halaman_delete_tamu.php";
                 break;
@@ -62,6 +71,9 @@ if (isset($_SESSION['id_user'])) {
                 break;
             case "delete_agenda":
                 include_once "halaman_delete_data/halaman_delete_agenda.php";
+                break;
+            case "delete_dokumen":
+                include_once "halaman_delete_data/halaman_delete_dokumen.php";
                 break;
             case "ganti_password":
                 include_once "halaman_profile/halaman_ganti_password.php";
