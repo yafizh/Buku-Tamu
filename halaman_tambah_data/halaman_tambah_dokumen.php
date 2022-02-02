@@ -40,7 +40,8 @@ if (isset($_POST['submit'])) {
                         <div class="row" style="margin-bottom: 16px;">
                         <?php
                             $data_dokumen = $mysqli->query("SELECT id_dokumen FROM tabel_dokumen ORDER BY id_dokumen DESC");
-                            $nomor_dokumen = !empty($data_dokumen->fetch_assoc()) ? ((int)$data_dokumen->fetch_assoc() + 1) : 1;
+                            $nomor_dokumen = $data_dokumen->fetch_assoc();
+                            $nomor_dokumen = !empty($nomor_dokumen) ? ((int)$nomor_dokumen['id_dokumen'] + 1) : 1;
                             ?>
                             <div class="col-md-12">
                                 <label for="nomor_dokumen" class="form-label">Nomor Dokumen</label>
