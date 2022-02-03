@@ -25,6 +25,7 @@
                             <thead>
                                 <tr>
                                     <th class="col-md-1">No</th>
+                                    <th class="col-md-4">Nomor Dokumen</th>
                                     <th class="col-md-4">Nama</th>
                                     <th class="col-md-2">Isi Dokumen</th>
                                     <th class="col-md-3">Keterangan</th>
@@ -56,6 +57,7 @@
                                     <tr>
                                         <td style="vertical-align: middle;"><?= $no++; ?></td>
                                         <td style="vertical-align: middle;"><?= $row['nomor_dokumen']; ?></td>
+                                        <td style="vertical-align: middle;"><?= $row['nama_dokumen']; ?></td>
                                         <td style="vertical-align: middle;"><?= $row['isi_dokumen']; ?></td>
                                         <td style="vertical-align: middle;"><?= $row['keterangan']; ?></td>
                                         <td class="text-center">
