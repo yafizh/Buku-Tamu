@@ -56,16 +56,26 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: 16px;">
-                            <div class="col-md-12">
+                            <div class="col-md-4">
+                                <label for="hari" class="form-label">Hari</label>
+                                <input type="text" class="form-control" readonly id="hari" name="hari" value="<?= HARI_DALAM_INDONESIA[Date("w")]; ?>">
+                            </div>
+                            <div class="col-md-4">
                                 <label for="tanggal" class="form-label">Tanggal</label>
                                 <input type="date" value="<?= Date("Y-m-d"); ?>" class="form-control" id="tanggal" name="tanggal" required>
                             </div>
-                        </div>
-                        <div class="row" style="margin-bottom: 16px;">
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <label for="waktu" class="form-label">Waktu</label>
                                 <input type="time" value="<?= Date("H:i"); ?>" class="form-control" id="waktu" name="waktu" required>
                             </div>
+                            <script>
+                                document.querySelector('#tanggal').addEventListener('change', function() {
+                                    const date = new Date(this.value);
+                                    document.querySelector('#hari').value = date.toLocaleDateString('id-ID', {
+                                        weekday: 'long'
+                                    });
+                                });
+                            </script>
                         </div>
                         <?php if ($_SESSION['status'] == 'ADMIN') : ?>
                             <div class="row" style="margin-bottom: 16px;">
