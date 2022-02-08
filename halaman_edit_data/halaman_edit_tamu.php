@@ -104,12 +104,12 @@ if (isset($_POST['submit'])) {
                                 <label for="id_ruangan" class="form-label">Tujuan</label>
                                 <select class="form-control" id="id_ruangan" name="id_ruangan" required>
                                     <option value="" selected disabled>Pilih Tempat</option>
-                                    <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama_ruangan"); ?>
+                                    <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama"); ?>
                                     <?php while ($row_ruangan = $data_ruangan->fetch_assoc()) : ?>
                                         <?php if ($row_ruangan['id_ruangan'] == $row['id_ruangan']) : ?>
-                                            <option selected value="<?= $row_ruangan['id_ruangan']; ?>"><?= ucwords(strtolower($row_ruangan['nama_ruangan'])); ?></option>
+                                            <option selected value="<?= $row_ruangan['id_ruangan']; ?>"><?= ucwords(strtolower($row_ruangan['nama'])); ?></option>
                                         <?php else : ?>
-                                            <option value="<?= $row_ruangan['id_ruangan']; ?>"><?= ucwords(strtolower($row_ruangan['nama_ruangan'])); ?></option>
+                                            <option value="<?= $row_ruangan['id_ruangan']; ?>"><?= ucwords(strtolower($row_ruangan['nama'])); ?></option>
                                         <?php endif; ?>
                                     <?php endwhile; ?>
                                 </select>

@@ -33,11 +33,11 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="id_ruangan" class="form-label">Tujuan</label>
-                                        <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama_ruangan"); ?>
+                                        <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama"); ?>
                                         <select class="form-control" id="id_ruangan" name="id_ruangan">
                                             <option value="" selected>Semua Ruangan</option>
                                             <?php while ($row = $data_ruangan->fetch_assoc()) : ?>
-                                                <option value="<?= $row['id_ruangan']; ?>"><?= ucwords(strtolower($row['nama_ruangan'])); ?></option>
+                                                <option value="<?= $row['id_ruangan']; ?>"><?= ucwords(strtolower($row['nama'])); ?></option>
                                             <?php endwhile; ?>
                                         </select>
                                     </div>
@@ -79,11 +79,11 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="id_ruangan" class="form-label">Tujuan</label>
-                                        <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama_ruangan"); ?>
+                                        <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama"); ?>
                                         <select class="form-control" id="id_ruangan" name="id_ruangan">
                                             <option value="" selected>Semua Ruangan</option>
                                             <?php while ($row = $data_ruangan->fetch_assoc()) : ?>
-                                                <option value="<?= $row['id_ruangan']; ?>"><?= ucwords(strtolower($row['nama_ruangan'])); ?></option>
+                                                <option value="<?= $row['id_ruangan']; ?>"><?= ucwords(strtolower($row['nama'])); ?></option>
                                             <?php endwhile; ?>
                                         </select>
                                     </div>
@@ -125,11 +125,11 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="id_ruangan" class="form-label">Tujuan</label>
-                                        <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama_ruangan"); ?>
+                                        <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama"); ?>
                                         <select class="form-control" id="id_ruangan" name="id_ruangan">
                                             <option value="" selected>Semua Ruangan</option>
                                             <?php while ($row = $data_ruangan->fetch_assoc()) : ?>
-                                                <option value="<?= $row['id_ruangan']; ?>"><?= ucwords(strtolower($row['nama_ruangan'])); ?></option>
+                                                <option value="<?= $row['id_ruangan']; ?>"><?= ucwords(strtolower($row['nama'])); ?></option>
                                             <?php endwhile; ?>
                                         </select>
                                     </div>
@@ -161,11 +161,11 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label for="id_ruangan" class="form-label">Tempat</label>
-                                        <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama_ruangan"); ?>
+                                        <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama"); ?>
                                         <select class="form-control" id="id_ruangan" name="id_ruangan">
                                             <option value="" selected>Semua Ruangan</option>
                                             <?php while ($row = $data_ruangan->fetch_assoc()) : ?>
-                                                <option value="<?= $row['id_ruangan']; ?>"><?= ucwords(strtolower($row['nama_ruangan'])); ?></option>
+                                                <option value="<?= $row['id_ruangan']; ?>"><?= ucwords(strtolower($row['nama'])); ?></option>
                                             <?php endwhile; ?>
                                         </select>
                                     </div>
@@ -197,11 +197,11 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label for="id_ruangan" class="form-label">Tempat</label>
-                                        <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama_ruangan"); ?>
+                                        <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama"); ?>
                                         <select class="form-control" id="id_ruangan" name="id_ruangan">
                                             <option value="" selected>Semua Ruangan</option>
                                             <?php while ($row = $data_ruangan->fetch_assoc()) : ?>
-                                                <option value="<?= $row['id_ruangan']; ?>"><?= ucwords(strtolower($row['nama_ruangan'])); ?></option>
+                                                <option value="<?= $row['id_ruangan']; ?>"><?= ucwords(strtolower($row['nama'])); ?></option>
                                             <?php endwhile; ?>
                                         </select>
                                     </div>
@@ -233,11 +233,11 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label for="id_ruangan" class="form-label">Tempat</label>
-                                        <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama_ruangan"); ?>
+                                        <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama"); ?>
                                         <select class="form-control" id="id_ruangan" name="id_ruangan">
                                             <option value="" selected>Semua Ruangan</option>
                                             <?php while ($row = $data_ruangan->fetch_assoc()) : ?>
-                                                <option value="<?= $row['id_ruangan']; ?>"><?= ucwords(strtolower($row['nama_ruangan'])); ?></option>
+                                                <option value="<?= $row['id_ruangan']; ?>"><?= ucwords(strtolower($row['nama'])); ?></option>
                                             <?php endwhile; ?>
                                         </select>
                                     </div>
