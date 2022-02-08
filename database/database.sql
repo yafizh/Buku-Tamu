@@ -16,6 +16,7 @@ CREATE TABLE `tabel_user` (
     username VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     status ENUM('ADMIN','PETUGAS') NOT NULL,
+    tanggal DATE NOT NULL,
     PRIMARY KEY (id_user)
 );
 

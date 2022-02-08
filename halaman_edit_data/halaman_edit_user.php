@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
                 nama='$nama', 
                 username='$username', 
                 password='$password', 
-                status='$status'
+                status='$status' 
             WHERE 
                 id_user=" . $_GET['id_user'];
 
@@ -48,6 +48,16 @@ if (isset($_POST['submit'])) {
                 <div class="panel-body">
                     <form action="" method="POST">
                         <div class="row" style="margin-bottom: 16px;">
+                            <div class="col-md-6">
+                                <label for="hari" class="form-label">Hari</label>
+                                <input type="text" class="form-control" readonly value="<?= HARI_DALAM_INDONESIA[Date("w", strtotime($row['tanggal']))]; ?>">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Tanggal</label>
+                                <input type="date" class="form-control" readonly value="<?= $row['tanggal']; ?>">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 16px;">
                             <div class="col-md-12">
                                 <label for="nama" class="form-label">Nama</label>
                                 <input type="text" class="form-control" id="nama" name="nama" value="<?= $row['nama']; ?>">
@@ -70,8 +80,8 @@ if (isset($_POST['submit'])) {
                                 <label for="status" class="form-label">Status</label>
                                 <select class="form-control" id="status" name="status">
                                     <option value="" disabled>Pilih Status</option>
-                                    <option <?= ($row['status'] == 'ADMIN' ? 'selected':''); ?> value="ADMIN">Admin</option>
-                                    <option <?= ($row['status'] == 'PEGAWAI' ? 'selected':''); ?> value="PEGAWAI">Pegawai</option>
+                                    <option <?= ($row['status'] == 'ADMIN' ? 'selected' : ''); ?> value="ADMIN">Admin</option>
+                                    <option <?= ($row['status'] == 'PETUGAS' ? 'selected' : ''); ?> value="PETUGAS">Petugas</option>
                                 </select>
                             </div>
                         </div>

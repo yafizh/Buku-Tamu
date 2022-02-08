@@ -5,18 +5,21 @@ if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $status = $_POST['status'];
+    $tanggal = $_POST['tanggal'];
 
     $sql = "
         INSERT INTO tabel_user (
             nama, 
             username, 
             password, 
-            status  
+            status,  
+            tanggal   
         ) VALUES (
             '$nama', 
             '$username', 
             '$password', 
-            '$status'
+            '$status',
+            '$tanggal' 
         )";
 
     if ($mysqli->query($sql) === TRUE) echo "<script>alert('User berhasil ditambahkan.')</script>";
@@ -37,6 +40,16 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="panel-body">
                     <form action="" method="POST">
+                        <div class="row" style="margin-bottom: 16px;">
+                            <div class="col-md-6">
+                                <label for="hari" class="form-label">Hari</label>
+                                <input type="text" class="form-control" readonly id="hari" name="hari" value="<?= HARI_DALAM_INDONESIA[Date("w")]; ?>">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="tanggal" class="form-label">Tanggal</label>
+                                <input type="date" readonly value="<?= Date("Y-m-d"); ?>" class="form-control" id="tanggal" name="tanggal" required>
+                            </div>
+                        </div>
                         <div class="row" style="margin-bottom: 16px;">
                             <div class="col-md-12">
                                 <label for="nama" class="form-label">Nama</label>
