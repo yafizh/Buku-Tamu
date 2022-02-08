@@ -23,7 +23,7 @@
                                 else if ($_GET['page'] == "tambah_agenda") echo "active";
                                 else if ($_GET['page'] == "edit_agenda") echo "active";
                             }
-                            ?>"><i class="lnr lnr-book"></i> <span>Agenda</span></a></li>
+                            ?>"><span class="lnr lnr-book"></span> <span>Agenda</span></a></li>
                 <li><a href="index.php?page=data_dokumen" class="
                             <?php
                             if (isset($_GET['page'])) {
