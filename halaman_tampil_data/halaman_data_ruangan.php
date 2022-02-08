@@ -15,7 +15,7 @@
                     </div>
                     <div class="col-md-4">
                         <form action="" method="POST" style="display: flex; justify-content: end;">
-                            <input type="text" name="keyword" placeholder="Nama Ruangan..." class="form-control" value="<?= isset($_POST['keyword']) ? $_POST['keyword'] : ""; ?>" style="margin-right: 16px;">
+                            <input type="text" name="keyword" placeholder="Nama, Ruangan..." class="form-control" value="<?= isset($_POST['keyword']) ? $_POST['keyword'] : ""; ?>" style="margin-right: 16px;">
                             <button type="submit" name="submit" class="btn btn-primary">Cari</button>
                         </form>
                     </div>

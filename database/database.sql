@@ -65,7 +65,7 @@ AS
         tabel_buku_tamu.*,
         tabel_user.nama AS nama_user,
         tabel_user.username,
-        tabel_ruangan.nama,
+        tabel_ruangan.nama AS nama_ruangan,
         tabel_ruangan.ruangan,
         tabel_ruangan.keterangan 
     FROM 
@@ -84,7 +84,7 @@ CREATE VIEW
 AS 
     SELECT 
         tabel_agenda.*,
-        tabel_ruangan.nama, 
+        tabel_ruangan.nama AS nama_ruangan, 
         tabel_ruangan.ruangan 
     FROM 
         tabel_agenda 
