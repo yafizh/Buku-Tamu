@@ -1,15 +1,18 @@
 <?php
 require_once "database/koneksi.php";
 if (isset($_POST['submit'])) {
-    $nama_ruangan = $_POST['nama_ruangan'];
+    $nama = $_POST['nama'];
+    $ruangan = $_POST['ruangan'];
     $keterangan = $_POST['keterangan'];
 
     $sql = "
         INSERT INTO tabel_ruangan (
-            nama_ruangan, 
+            nama, 
+            ruangan, 
             keterangan 
         ) VALUES (
-            '$nama_ruangan', 
+            '$nama', 
+            '$ruangan', 
             '$keterangan'
         )";
 
@@ -33,8 +36,14 @@ if (isset($_POST['submit'])) {
                     <form action="" method="POST">
                         <div class="row" style="margin-bottom: 16px;">
                             <div class="col-md-12">
-                                <label for="nama_ruangan" class="form-label">Nama Ruangan</label>
-                                <input type="text" autofocus class="form-control" id="nama_ruangan" name="nama_ruangan" required>
+                                <label for="nama" class="form-label">Nama</label>
+                                <input type="text" autofocus class="form-control" id="nama" name="nama" required>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 16px;">
+                            <div class="col-md-12">
+                                <label for="ruangan" class="form-label">Ruangan</label>
+                                <input type="text" autofocus class="form-control" id="ruangan" name="ruangan" required>
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: 16px;">

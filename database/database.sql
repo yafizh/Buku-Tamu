@@ -21,7 +21,8 @@ CREATE TABLE `tabel_user` (
 
 CREATE TABLE `tabel_ruangan` (
     id_ruangan INT NOT NULL AUTO_INCREMENT,
-    nama_ruangan VARCHAR(255) NOT NULL,
+    nama VARCHAR(255) NOT NULL,
+    ruangan VARCHAR(255) NOT NULL,
     keterangan VARCHAR(255) NOT NULL,
     PRIMARY KEY (id_ruangan)
 );
@@ -64,7 +65,8 @@ AS
         tabel_buku_tamu.*,
         tabel_user.nama AS nama_user,
         tabel_user.username,
-        tabel_ruangan.nama_ruangan,
+        tabel_ruangan.nama,
+        tabel_ruangan.ruangan,
         tabel_ruangan.keterangan 
     FROM 
         tabel_buku_tamu 
@@ -82,7 +84,8 @@ CREATE VIEW
 AS 
     SELECT 
         tabel_agenda.*,
-        tabel_ruangan.nama_ruangan 
+        tabel_ruangan.nama, 
+        tabel_ruangan.ruangan 
     FROM 
         tabel_agenda 
     INNER JOIN 
@@ -121,23 +124,24 @@ INSERT INTO `tabel_user` (
 ('Firdaus', 'daus','daus','PETUGAS');
 
 INSERT INTO `tabel_ruangan` (
-    nama_ruangan,
+    nama,
+    ruangan,
     keterangan 
 ) VALUES 
-('Umum dan Kepegawaian', 'Ruangan Umum dan Kepegawaian'),
-('Perencanaan dan Keuangan', 'Ruangan Perencanaan dan Keuangan'),
-('Sekretaris', 'Ruangan Sekretaris'),
-('Fungsional', 'Ruangan Fungsional'),
-('Ruang Kepala Dinas', 'Ruangan Kepala Dinas'),
-('Studio Mini', 'Ruangan Studio Mini'),
-('Musholla', 'Ruangan Musholla'),
-('Wakapitu', 'Ruangan Wakapitu'),
-('Aula', 'Ruangan Aula'),
-('Brailie Corner', 'Ruangan Brailie Corner'),
-('Perpustakaan Keliling', 'Ruangan Perpustakaan Keliling'),
-('Sirkulasi', 'Ruangan Sirkulasi'),
-('Ruangan Anak', 'Ruangan Anak'),
-('Depo Arsip', 'Ruangan Depo Arsip');
+('Umum dan Kepegawaian', '','Ruangan Umum dan Kepegawaian'),
+('Perencanaan dan Keuangan', '','Ruangan Perencanaan dan Keuangan'),
+('Sekretaris', '','Ruangan Sekretaris'),
+('Fungsional', '','Ruangan Fungsional'),
+('Ruang Kepala Dinas', '','Ruangan Kepala Dinas'),
+('Studio Mini', '','Ruangan Studio Mini'),
+('Musholla', '','Ruangan Musholla'),
+('Wakapitu', '','Ruangan Wakapitu'),
+('Aula', '','Ruangan Aula'),
+('Brailie Corner', '','Ruangan Brailie Corner'),
+('Perpustakaan Keliling', '','Ruangan Perpustakaan Keliling'),
+('Sirkulasi', '','Ruangan Sirkulasi'),
+('Ruangan Anak', '','Ruangan Anak'),
+('Depo Arsip', '','Ruangan Depo Arsip');
 
 INSERT INTO `tabel_buku_tamu` (
     id_user,

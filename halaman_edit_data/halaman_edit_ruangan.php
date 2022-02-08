@@ -12,12 +12,14 @@ if (isset($_GET['id_ruangan'])) {
         "</script>";
 
 if (isset($_POST['submit'])) {
-    $nama_ruangan = $_POST['nama_ruangan'];
+    $nama = $_POST['nama'];
+    $ruangan = $_POST['ruangan'];
     $keterangan = $_POST['keterangan'];
 
     $sql = "UPDATE tabel_ruangan 
             SET 
-                nama_ruangan='$nama_ruangan', 
+                nama='$nama', 
+                ruangan='$ruangan', 
                 keterangan='$keterangan' 
             WHERE 
                 id_ruangan=" . $_GET['id_ruangan'];
@@ -38,15 +40,21 @@ if (isset($_POST['submit'])) {
             <!-- OVERVIEW -->
             <div class="panel panel-headline">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Edit Ruangan <?= $row['nama_ruangan']; ?></h3>
+                    <h3 class="panel-title">Edit Ruangan <?= $row['nama']; ?></h3>
                     <!-- <p class="panel-subtitle">Periode: 1 Januar 14, 2016 - Oct 21, 2016</p> -->
                 </div>
                 <div class="panel-body">
                     <form action="" method="POST">
                         <div class="row" style="margin-bottom: 16px;">
                             <div class="col-md-12">
-                                <label for="nama_ruangan" class="form-label">Nama Ruangan</label>
-                                <input type="text" class="form-control" id="nama_ruangan" name="nama_ruangan" value="<?= $row['nama_ruangan']; ?>">
+                                <label for="nama" class="form-label">Nama</label>
+                                <input type="text" class="form-control" id="nama" name="nama" value="<?= $row['nama']; ?>">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 16px;">
+                            <div class="col-md-12">
+                                <label for="ruangan" class="form-label">Ruangan</label>
+                                <input type="text" class="form-control" id="ruangan" name="ruangan" value="<?= $row['ruangan']; ?>">
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: 16px;">

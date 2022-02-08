@@ -25,7 +25,8 @@
                             <thead>
                                 <tr>
                                     <th class="col-md-1">No</th>
-                                    <th class="col-md-4">Nama Ruangan</th>
+                                    <th class="col-md-2">Nama</th>
+                                    <th class="col-md-2">Ruangan</th>
                                     <th class="col-md-3">Keterangan</th>
                                     <th class="col-md-2 text-center">Aksi</th>
                                 </tr>
@@ -42,11 +43,11 @@
                                 $sebelumnya = $halaman - 1;
                                 $selanjutnya = $halaman + 1;
 
-                                $data = $mysqli->query("SELECT * FROM tabel_ruangan WHERE nama_ruangan LIKE '%$keyword%'");
+                                $data = $mysqli->query("SELECT * FROM tabel_ruangan WHERE nama LIKE '%$keyword%' OR ruangan LIKE '%$keyword%'");
                                 $jumlah_data = mysqli_num_rows($data);
                                 $total_halaman = ceil($jumlah_data / $batas);
 
-                                $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan WHERE nama_ruangan LIKE '%$keyword%' ORDER BY nama_ruangan LIMIT $halaman_awal, $batas");
+                                $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan WHERE nama LIKE '%$keyword%' OR ruangan LIKE '%$keyword%' ORDER BY nama LIMIT $halaman_awal, $batas");
                                 $nomor = $halaman_awal + 1;
 
                                 $no = 1;
@@ -54,7 +55,8 @@
                                 <?php while ($row = $data_ruangan->fetch_assoc()) : ?>
                                     <tr>
                                         <td style="vertical-align: middle;"><?= $no++; ?></td>
-                                        <td style="vertical-align: middle;"><?= $row['nama_ruangan']; ?></td>
+                                        <td style="vertical-align: middle;"><?= $row['nama']; ?></td>
+                                        <td style="vertical-align: middle;"><?= $row['ruangan']; ?></td>
                                         <td style="vertical-align: middle;"><?= $row['keterangan']; ?></td>
                                         <td class="text-center">
                                             <a href="index.php?page=edit_ruangan&id_ruangan=<?= $row['id_ruangan']; ?>" class="btn btn-warning btn-xs"><span class="lnr lnr-pencil"></span></a>
