@@ -1,5 +1,6 @@
 <?php
 require_once "../../database/koneksi.php";
+require_once "../../utils/utils.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,13 +63,13 @@ require_once "../../database/koneksi.php";
             <tbody>
                 <?php
                 $no = 1;
-                $result = $mysqli->query("SELECT * FROM view_jumlah_kunjungan_ruangan ORDER BY nama_ruangan");
+                $result = $mysqli->query("SELECT * FROM view_jumlah_kunjungan_ruangan ORDER BY nama");
                 ?>
                 <?php if ($result->num_rows) : ?>
                     <?php while ($row = $result->fetch_assoc()) : ?>
                         <tr>
                             <td class="text-center"><?= $no++; ?></td>
-                            <td class="text-center"><?= ucwords(strtolower($row['nama_ruangan'])); ?></td>
+                            <td class="text-center"><?= ucwords(strtolower($row['nama'])); ?></td>
                             <td class="text-center"><?= $row['jumlah_kunjungan']; ?></td>
                         </tr>
                     <?php endwhile; ?>
@@ -76,6 +77,15 @@ require_once "../../database/koneksi.php";
                 <?php $result->free_result(); ?>
             </tbody>
         </table>
+        <div style="display: flex; justify-content: end;">
+            <div style="text-align: center; margin-top: 20px; padding: 10px; width: 200px;">
+                <span>Banjarbaru, <?= Date('d') ?> <?= BULAN_DALAM_INDONESIA[Date('m') - 1] ?> <?= Date('Y') ?></span>
+                <br>
+                <span>Mengetahui</span>
+                <br><br><br><br><br>
+                <span>ADMIN</span>
+            </div>
+        </div>
     </div>
     <script>
         window.print();
