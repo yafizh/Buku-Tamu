@@ -3,6 +3,22 @@
     <!-- MAIN CONTENT -->
     <div class="main-content">
         <div class="container-fluid">
+            <div class="panel panel-headline">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Selamat Datang <?= $_SESSION['nama']; ?></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                           <img src="assets/img/Lambang_Kota_Banjarbaru.png" alt="">
+                        </div>
+                        <div class="col-md-9">
+                           <h1>Buku Tamu</h1>
+                           <h2>Dinas Arsip dan Perpustakaan Daerah Kota Banjarbaru</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- OVERVIEW -->
             <div class="panel panel-headline">
                 <div class="panel-heading">
@@ -72,7 +88,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                           <h3>Pengunjung 1 Minggu Terakhir</h3>
+                            <h3>Pengunjung 1 Minggu Terakhir</h3>
                         </div>
                     </div>
                     <div class="row">
