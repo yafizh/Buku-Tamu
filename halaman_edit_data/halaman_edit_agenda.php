@@ -54,30 +54,40 @@ if (isset($_POST['submit'])) {
                         <div class="row" style="margin-bottom: 16px;">
                             <div class="col-md-12">
                                 <label for="id_ruangan" class="form-label">Tempat</label>
-                                <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama_ruangan"); ?>
+                                <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama"); ?>
                                 <select class="form-control" id="id_ruangan" name="id_ruangan" required>
                                     <option value="" selected disabled>Pilih Tempat</option>
                                     <?php while ($row_ruangan = $data_ruangan->fetch_assoc()) : ?>
                                         <?php if ($row_ruangan['id_ruangan'] == $row['id_ruangan']) : ?>
-                                            <option selected value="<?= $row_ruangan['id_ruangan']; ?>"><?= ucwords(strtolower($row_ruangan['nama_ruangan'])); ?></option>
+                                            <option selected value="<?= $row_ruangan['id_ruangan']; ?>"><?= ucwords(strtolower($row_ruangan['nama'])); ?></option>
                                         <?php else : ?>
-                                            <option value="<?= $row_ruangan['id_ruangan']; ?>"><?= ucwords(strtolower($row_ruangan['nama_ruangan'])); ?></option>
+                                            <option value="<?= $row_ruangan['id_ruangan']; ?>"><?= ucwords(strtolower($row_ruangan['nama'])); ?></option>
                                         <?php endif; ?>
                                     <?php endwhile; ?>
                                 </select>
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: 16px;">
-                            <div class="col-md-12">
+                            <div class="col-md-4">
+                                <label for="hari" class="form-label">Hari</label>
+                                <input type="text" class="form-control" readonly value="<?= HARI_DALAM_INDONESIA[Date("w", strtotime($row['tanggal']))]; ?>">
+                            </div>
+                            <div class="col-md-4">
                                 <label for="tanggal" class="form-label">Tanggal</label>
                                 <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?= $row['tanggal']; ?>">
                             </div>
-                        </div>
-                        <div class="row" style="margin-bottom: 16px;">
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <label for="waktu" class="form-label">Waktu</label>
                                 <input type="time" class="form-control" id="waktu" name="waktu" value="<?= $row['waktu']; ?>">
                             </div>
+                            <script>
+                                document.querySelector('#tanggal').addEventListener('change', function() {
+                                    const date = new Date(this.value);
+                                    document.querySelector('#hari').value = date.toLocaleDateString('id-ID', {
+                                        weekday: 'long'
+                                    });
+                                });
+                            </script>
                         </div>
                         <?php if ($_SESSION['status'] == 'ADMIN') : ?>
                             <div class="row" style="margin-bottom: 16px;">

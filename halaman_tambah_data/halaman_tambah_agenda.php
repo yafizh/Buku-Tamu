@@ -46,11 +46,11 @@ if (isset($_POST['submit'])) {
                         <div class="row" style="margin-bottom: 16px;">
                             <div class="col-md-12">
                                 <label for="id_ruangan" class="form-label">Tempat</label>
-                                <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama_ruangan"); ?>
+                                <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama"); ?>
                                 <select class="form-control" id="id_ruangan" name="id_ruangan" required>
                                     <option value="" selected disabled>Pilih Tempat</option>
                                     <?php while ($row = $data_ruangan->fetch_assoc()) : ?>
-                                        <option value="<?= $row['id_ruangan']; ?>"><?= ucwords(strtolower($row['nama_ruangan'])); ?></option>
+                                        <option value="<?= $row['id_ruangan']; ?>"><?= ucwords(strtolower($row['nama'])); ?></option>
                                     <?php endwhile; ?>
                                 </select>
                             </div>
