@@ -35,21 +35,7 @@ require_once "../../utils/utils.php";
 
 <body>
     <div class="container">
-        <div id="kop" class="d-flex justify-content-center gap-5">
-            <img src="../../assets/img/Lambang_Kota_Banjarbaru.png" height="150" alt="">
-            <div class="text-center" style="flex: 1;">
-                <h2>
-                    DINAS ARSIP DAN PERPUSTAKAAN DAERAH
-                    <br>
-                    BANJARBARU
-                </h2>
-                <p>
-                    Alamat: Jl. Wijaya Kusuma No.7
-                    <br>
-                    Email: darpusdabjb@banjarbarukota.go.id
-                </p>
-            </div>
-        </div>
+        <?php include_once "header.php"; ?>
         <div class="my-3" style="border-top: 2px solid black; margin-top:12px;"></div>
         <h2 class="text-center">Laporan Ruangan</h2>
         <table>
