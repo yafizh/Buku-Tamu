@@ -28,6 +28,7 @@
                                     <th class="col-md-4">Nama</th>
                                     <th class="col-md-3">Username</th>
                                     <th class="col-md-2">Status</th>
+                                    <th class="col-md-2">Jam Kerja</th>
                                     <th class="col-md-2 text-center">Aksi</th>
                                 </tr>
                             </thead>
@@ -58,6 +59,7 @@
                                         <td style="vertical-align: middle;"><?= $row['nama']; ?></td>
                                         <td style="vertical-align: middle;"><?= $row['username']; ?></td>
                                         <td style="vertical-align: middle;"><?= $row['status']; ?></td>
+                                        <td style="vertical-align: middle;"><?= $row['jam_kerja']; ?></td>
                                         <td class="text-center">
                                             <a href="index.php?page=edit_user&id_user=<?= $row['id_user']; ?>" class="btn btn-warning btn-xs"><span class="lnr lnr-pencil"></span></a>
                                             <a href="index.php?page=delete_user&id_user=<?= $row['id_user']; ?>" class="btn btn-danger btn-xs" onclick="return confirm('Yakin ingin menghapus data ini?')"><span class="lnr lnr-trash"></span></a>

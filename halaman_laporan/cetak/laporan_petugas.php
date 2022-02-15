@@ -44,6 +44,7 @@ require_once "../../utils/utils.php";
                     <th class="text-center">No</th>
                     <th>Nama Petugas</th>
                     <th>Username</th>
+                    <th>Jam Kerja</th>
                 </tr>
             </thead>
             <tbody>
@@ -57,6 +58,7 @@ require_once "../../utils/utils.php";
                             <td class="text-center"><?= $no++; ?></td>
                             <td class="text-center"><?= $row['nama']; ?></td>
                             <td class="text-center"><?= $row['username']; ?></td>
+                            <td class="text-center"><?= $row['jam_kerja']; ?></td>
                         </tr>
                     <?php endwhile; ?>
                 <?php endif; ?>

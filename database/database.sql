@@ -17,6 +17,7 @@ CREATE TABLE `tabel_user` (
     password VARCHAR(255) NOT NULL,
     status ENUM('ADMIN','PETUGAS') NOT NULL,
     tanggal DATE NOT NULL,
+    jam_kerja VARCHAR(255) NULL,
     PRIMARY KEY (id_user)
 );
 
@@ -119,10 +120,11 @@ INSERT INTO `tabel_user` (
     nama,
     username,
     password,
-    status
+    status,
+    jam_kerja 
 ) VALUES 
-('Firdaus', 'admin','admin','ADMIN'),
-('Firdaus', 'daus','daus','PETUGAS');
+('Firdaus', 'admin','admin','ADMIN', NULL),
+('Firdaus', 'daus','daus','PETUGAS', 'SIANG | (13:00 - 16:00)');
 
 INSERT INTO `tabel_ruangan` (
     nama,

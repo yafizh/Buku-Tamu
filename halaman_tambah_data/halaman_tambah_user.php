@@ -6,6 +6,7 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
     $status = $_POST['status'];
     $tanggal = $_POST['tanggal'];
+    $jam_kerja = $_POST['jam_kerja'];
 
     $sql = "
         INSERT INTO tabel_user (
@@ -13,13 +14,15 @@ if (isset($_POST['submit'])) {
             username, 
             password, 
             status,  
-            tanggal   
+            tanggal,
+            jam_kerja    
         ) VALUES (
             '$nama', 
             '$username', 
             '$password', 
             '$status',
-            '$tanggal' 
+            '$tanggal',
+            '$jam_kerja' 
         )";
 
     if ($mysqli->query($sql) === TRUE) echo "<script>alert('User berhasil ditambahkan.')</script>";
@@ -69,12 +72,20 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: 16px;">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <label for="status" class="form-label">Status</label>
                                 <select class="form-control" id="status" name="status">
                                     <option value="" disabled selected>Pilih Status</option>
                                     <option value="ADMIN">Admin</option>
                                     <option value="PETUGAS">Petugas</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="jam_kerja" class="form-label">Jam Kerja</label>
+                                <select class="form-control" id="jam_kerja" name="jam_kerja">
+                                    <option value="" disabled selected>Pilih Jam Kerja</option>
+                                    <option value="PAGI | (08:00 - 11:00)">PAGI | (08:00 - 11:00)</option>
+                                    <option value="SIANG | (13:00 - 16:00)">SIANG | (13:00 - 16:00)</option>
                                 </select>
                             </div>
                         </div>
