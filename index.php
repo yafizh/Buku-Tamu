@@ -6,7 +6,8 @@ include_once "utils/utils.php";
 if (isset($_SESSION['id_user'])) {
     include_once "templates/navbar.php";
     if ($_SESSION['status'] == 'ADMIN') include_once "templates/sidebar/sidebar_admin.php";
-    else include_once "templates/sidebar/sidebar_petugas.php";
+    else if ($_SESSION['status'] == 'PETUGAS') include_once "templates/sidebar/sidebar_petugas.php";
+    else if ($_SESSION['status'] == 'SEKOLAH') include_once "templates/sidebar/sidebar_sekolah.php";
     if (isset($_GET['page'])) {
         switch ($_GET['page']) {
             case "buku_tamu_masuk":
@@ -27,6 +28,12 @@ if (isset($_SESSION['id_user'])) {
             case "tambah_dokumen":
                 include_once "halaman_tambah_data/halaman_tambah_dokumen.php";
                 break;
+            case "tambah_rak_buku":
+                include_once "halaman_tambah_data/halaman_tambah_rak_buku.php";
+                break;
+            case "tambah_petugas":
+                include_once "halaman_tambah_data/halaman_tambah_petugas.php";
+                break;
             case "data_tamu":
                 include_once "halaman_tampil_data/halaman_data_tamu.php";
                 break;
@@ -42,8 +49,17 @@ if (isset($_SESSION['id_user'])) {
             case "data_dokumen":
                 include_once "halaman_tampil_data/halaman_data_dokumen.php";
                 break;
+            case "data_rak_buku":
+                include_once "halaman_tampil_data/halaman_data_rak_buku.php";
+                break;
+            case "data_petugas":
+                include_once "halaman_tampil_data/halaman_data_petugas.php";
+                break;
             case "detail_tamu":
                 include_once "halaman_detail/halaman_detail_tamu.php";
+                break;
+            case "detail_agenda":
+                include_once "halaman_detail/halaman_detail_agenda.php";
                 break;
             case "edit_tamu":
                 include_once "halaman_edit_data/halaman_edit_tamu.php";
@@ -60,6 +76,12 @@ if (isset($_SESSION['id_user'])) {
             case "edit_dokumen":
                 include_once "halaman_edit_data/halaman_edit_dokumen.php";
                 break;
+            case "edit_rak_buku":
+                include_once "halaman_edit_data/halaman_edit_rak_buku.php";
+                break;
+            case "edit_petugas":
+                include_once "halaman_edit_data/halaman_edit_petugas.php";
+                break;
             case "delete_tamu":
                 include_once "halaman_delete_data/halaman_delete_tamu.php";
                 break;
@@ -74,6 +96,12 @@ if (isset($_SESSION['id_user'])) {
                 break;
             case "delete_dokumen":
                 include_once "halaman_delete_data/halaman_delete_dokumen.php";
+                break;
+            case "delete_rak_buku":
+                include_once "halaman_delete_data/halaman_delete_rak_buku.php";
+                break;
+            case "delete_petugas":
+                include_once "halaman_delete_data/halaman_delete_petugas.php";
                 break;
             case "ganti_password":
                 include_once "halaman_profile/halaman_ganti_password.php";

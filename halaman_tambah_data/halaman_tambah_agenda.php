@@ -5,24 +5,27 @@ if (isset($_POST['submit'])) {
     $tanggal = $_POST['tanggal'];
     $waktu = $_POST['waktu'];
     $kegiatan = $_POST['kegiatan'];
-    $pejabat = isset($_POST['pejabat']) ? $_POST['pejabat'] : '';
-    $fotografer = isset($_POST['fotografer']) ? $_POST['fotografer'] : '';
+    $jenis = $_POST['jenis'];
+    $status = $_SESSION['status'] === 'admin' ? 'DISETUJUI' : 'PENGAJUAN';
+    $id_user = $_SESSION['id_user'];
 
     $sql = "
         INSERT INTO tabel_agenda (
             id_ruangan, 
+            id_user, 
             tanggal, 
             waktu, 
-            pejabat,
-            fotografer,
-            kegiatan 
+            kegiatan, 
+            jenis,  
+            status    
         ) VALUES (
             '$id_ruangan', 
+            '$id_user', 
             '$tanggal', 
             '$waktu', 
-            '$pejabat', 
-            '$fotografer', 
-            '$kegiatan'
+            '$kegiatan',
+            '$jenis', 
+            '$status' 
         )";
 
     if ($mysqli->query($sql) === TRUE) echo "<script>alert('Agenda berhasil ditambahkan.')</script>";
@@ -44,7 +47,7 @@ if (isset($_POST['submit'])) {
                 <div class="panel-body">
                     <form action="" method="POST">
                         <div class="row" style="margin-bottom: 16px;">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <label for="id_ruangan" class="form-label">Tempat</label>
                                 <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama"); ?>
                                 <select class="form-control" id="id_ruangan" name="id_ruangan" required>
@@ -52,6 +55,15 @@ if (isset($_POST['submit'])) {
                                     <?php while ($row = $data_ruangan->fetch_assoc()) : ?>
                                         <option value="<?= $row['id_ruangan']; ?>"><?= ucwords(strtolower($row['nama'])); ?></option>
                                     <?php endwhile; ?>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="jenis" class="form-label">Jenis Agenda</label>
+                                <select class="form-control" id="jenis" name="jenis" required <?= $_SESSION['status'] === 'SEKOLAH' ? 'readonly' : ''; ?>>
+                                    <option value="" selected disabled>Pilih Jenis Agenda</option>
+                                    <option value="INTERNAL" <?= $_SESSION['status'] === 'SEKOLAH' ? 'disabled' : ''; ?>>Kegiatan Internal</option>
+                                    <option value="KUNJUNGAN SEKOLAH" <?= $_SESSION['status'] === 'SEKOLAH' ? 'selected' : ''; ?>>Kunjungan Sekolah</option>
+                                    <option value="EVENT" <?= $_SESSION['status'] === 'SEKOLAH' ? 'disabled' : ''; ?>>Event</option>
                                 </select>
                             </div>
                         </div>
@@ -77,20 +89,6 @@ if (isset($_POST['submit'])) {
                                 });
                             </script>
                         </div>
-                        <?php if ($_SESSION['status'] == 'ADMIN') : ?>
-                            <div class="row" style="margin-bottom: 16px;">
-                                <div class="col-md-12">
-                                    <label for="pejabat" class="form-label">Pejabat</label>
-                                    <input type="text" class="form-control" id="pejabat" name="pejabat">
-                                </div>
-                            </div>
-                            <div class="row" style="margin-bottom: 16px;">
-                                <div class="col-md-12">
-                                    <label for="fotografer" class="form-label">Fotografer</label>
-                                    <input type="text" class="form-control" id="fotografer" name="fotografer">
-                                </div>
-                            </div>
-                        <?php endif; ?>
                         <div class="row" style="margin-bottom: 16px;">
                             <div class="col-md-12">
                                 <label for="kegiatan" class="form-label">Kegiatan</label>

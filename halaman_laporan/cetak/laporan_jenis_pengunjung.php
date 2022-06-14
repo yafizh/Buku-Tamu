@@ -1,6 +1,7 @@
 <?php
 require_once "../../database/koneksi.php";
 require_once "../../utils/utils.php";
+$tahun = $_POST['tahun'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +10,7 @@ require_once "../../utils/utils.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laporan Petugas</title>
+    <title>Laporan Jenis Pengunjung Tahun <?= $tahun; ?></title>
     <style>
         table,
         th,
@@ -37,14 +38,14 @@ require_once "../../utils/utils.php";
     <div class="container">
         <?php include_once "header.php"; ?>
         <div class="my-3" style="border-top: 2px solid black; margin-top:12px;"></div>
-        <h2 class="text-center">Laporan Petugas</h2>
+        <h2 class="text-center">Laporan Jenis Pengunjung Tahun <?= $tahun; ?></h2>
         <table>
             <thead>
                 <tr>
-                    <th class="text-center">No</th>
-                    <th>Nama Petugas</th>
-                    <th>Tugas</th>
                     <th>Bulan</th>
+                    <th>Peorangan</th>
+                    <th>Sekolah</th>
+                    <th>Instansi</th>
                 </tr>
             </thead>
             <tbody>

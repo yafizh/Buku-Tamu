@@ -6,19 +6,16 @@
             <!-- OVERVIEW -->
             <div class="panel panel-headline">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Agenda</h3>
+                    <h3 class="panel-title">Petugas</h3>
                     <!-- <p class="panel-subtitle">Periode: 1 Januar 14, 2016 - Oct 21, 2016</p> -->
                 </div>
                 <div class="panel-body">
                     <div class="col-md-8">
-                        <?php if ($_SESSION['status'] === 'SEKOLAH') : ?>
-                        <?php else : ?>
-                            <a href="index.php?page=tambah_agenda" class="btn btn-primary">Tambah Agenda</a>
-                        <?php endif; ?>
+                        <a href="index.php?page=tambah_petugas" class="btn btn-primary">Tambah Petugas</a>
                     </div>
                     <div class="col-md-4">
                         <form action="" method="POST" style="display: flex; justify-content: end;">
-                            <input type="text" name="keyword" placeholder="Tempat, Pejabat, Fotografer..." class="form-control" value="<?= isset($_POST['keyword']) ? $_POST['keyword'] : ""; ?>" style="margin-right: 16px;">
+                            <input type="text" name="keyword" placeholder="Nama..." class="form-control" value="<?= isset($_POST['keyword']) ? $_POST['keyword'] : ""; ?>" style="margin-right: 16px;">
                             <button type="submit" name="submit" class="btn btn-primary">Cari</button>
                         </form>
                     </div>
@@ -27,11 +24,10 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Tempat</th>
-                                    <th>Tanggal</th>
-                                    <th>Waktu</th>
-                                    <th>Kegiatan</th>
+                                    <th class="col-md-1">No</th>
+                                    <th class="col-md-2">Nama</th>
+                                    <th class="col-md-2">Tugas</th>
+                                    <th class="col-md-3">Bulan</th>
                                     <th class="col-md-2 text-center">Aksi</th>
                                 </tr>
                             </thead>
@@ -47,41 +43,24 @@
                                 $sebelumnya = $halaman - 1;
                                 $selanjutnya = $halaman + 1;
 
-
-                                if ($_SESSION['status'] === 'SEKOLAH')
-                                    $query = "SELECT * FROM view_agenda WHERE id_user=" . $_SESSION['id_user'];
-                                else
-                                    $query = "SELECT * FROM view_agenda WHERE nama_ruangan LIKE '%$keyword%'";
-
-                                $data = $mysqli->query($query);
+                                $data = $mysqli->query("SELECT * FROM tabel_petugas WHERE nama LIKE '%$keyword%'");
                                 $jumlah_data = mysqli_num_rows($data);
                                 $total_halaman = ceil($jumlah_data / $batas);
 
-                                $data_agenda = $mysqli->query($query . " ORDER BY id_agenda DESC LIMIT $halaman_awal, $batas");
+                                $data_petugas = $mysqli->query("SELECT * FROM tabel_petugas WHERE nama LIKE '%$keyword%' ORDER BY nama LIMIT $halaman_awal, $batas");
                                 $nomor = $halaman_awal + 1;
 
                                 $no = 1;
                                 ?>
-                                <?php while ($row = $data_agenda->fetch_assoc()) : ?>
+                                <?php while ($row = $data_petugas->fetch_assoc()) : ?>
                                     <tr>
                                         <td style="vertical-align: middle;"><?= $no++; ?></td>
-                                        <td style="vertical-align: middle;"><?= $row['nama_ruangan']; ?></td>
-                                        <td style="vertical-align: middle;"><?= $row['tanggal']; ?></td>
-                                        <td style="vertical-align: middle;"><?= $row['waktu']; ?></td>
-                                        <td style="vertical-align: middle;"><?= $row['kegiatan']; ?></td>
+                                        <td style="vertical-align: middle;"><?= $row['nama']; ?></td>
+                                        <td style="vertical-align: middle;"><?= $row['tugas']; ?></td>
+                                        <td style="vertical-align: middle;"><?= $row['bulan']; ?></td>
                                         <td class="text-center">
-                                            <?php if ($row['status'] === 'DISETUJUI') : ?>
-                                                Disetujui
-                                            <?php elseif ($row['status'] === 'DITOLAK') : ?>
-                                                Ditolak
-                                            <?php else : ?>
-                                                <?php if ($_SESSION['status'] === 'ADMIN') : ?>
-                                                    <a href="index.php?page=detail_agenda&id_agenda=<?= $row['id_agenda']; ?>" class="btn btn-info btn-xs"><span class="lnr lnr-eye"></span></a>
-                                                <?php else : ?>
-                                                    <a href="index.php?page=edit_agenda&id_agenda=<?= $row['id_agenda']; ?>" class="btn btn-warning btn-xs"><span class="lnr lnr-pencil"></span></a>
-                                                    <a href="index.php?page=delete_agenda&id_agenda=<?= $row['id_agenda']; ?>" class="btn btn-danger btn-xs" onclick="return confirm('Yakin ingin menghapus data ini?')"><span class="lnr lnr-trash"></span></a>
-                                                <?php endif; ?>
-                                            <?php endif; ?>
+                                            <a href="index.php?page=edit_petugas&id_petugas=<?= $row['id_petugas']; ?>" class="btn btn-warning btn-xs"><span class="lnr lnr-pencil"></span></a>
+                                            <a href="index.php?page=delete_petugas&id_petugas=<?= $row['id_petugas']; ?>" class="btn btn-danger btn-xs" onclick="return confirm('Yakin ingin menghapus data ini?')"><span class="lnr lnr-trash"></span></a>
                                         </td>
                                     </tr>
                                 <?php endwhile; ?>
@@ -94,21 +73,21 @@
                                 <ul class="pagination">
                                     <?php if ($sebelumnya > 0) : ?>
                                         <li>
-                                            <a href="index.php?page=data_agenda&halaman=<?= $sebelumnya; ?>" aria-label="Previous">
+                                            <a href="index.php?page=data_petugas&halaman=<?= $sebelumnya; ?>" aria-label="Previous">
                                                 <span aria-hidden="true">&laquo;</span>
                                             </a>
                                         </li>
                                     <?php endif; ?>
                                     <?php for ($i = 1; $i <= $total_halaman; $i++) : ?>
                                         <?php if ($i == $halaman) : ?>
-                                            <li class="active"><a href="index.php?page=data_agenda&halaman=<?= $i; ?>"><?= $i; ?></a></li>
+                                            <li class="active"><a href="index.php?page=data_petugas&halaman=<?= $i; ?>"><?= $i; ?></a></li>
                                         <?php else : ?>
-                                            <li><a href="index.php?page=data_agenda&halaman=<?= $i; ?>"><?= $i; ?></a></li>
+                                            <li><a href="index.php?page=data_petugas&halaman=<?= $i; ?>"><?= $i; ?></a></li>
                                         <?php endif; ?>
                                     <?php endfor; ?>
                                     <?php if ($selanjutnya <= $total_halaman) : ?>
                                         <li>
-                                            <a href="index.php?page=data_agenda&halaman=<?= $selanjutnya; ?>" aria-label="Next">
+                                            <a href="index.php?page=data_petugas&halaman=<?= $selanjutnya; ?>" aria-label="Next">
                                                 <span aria-hidden="true">&raquo;</span>
                                             </a>
                                         </li>

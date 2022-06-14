@@ -16,17 +16,13 @@ if (isset($_POST['submit'])) {
     $tanggal = $_POST['tanggal'];
     $waktu = $_POST['waktu'];
     $kegiatan = $_POST['kegiatan'];
-    $pejabat = isset($_POST['pejabat']) ? $_POST['pejabat'] : '';
-    $fotografer = isset($_POST['fotografer']) ? $_POST['fotografer'] : '';
 
     $sql = "UPDATE tabel_agenda 
             SET 
                 id_ruangan='$id_ruangan', 
                 tanggal='$tanggal', 
                 waktu='$waktu', 
-                kegiatan='$kegiatan', 
-                pejabat='$pejabat', 
-                fotografer='$fotografer' 
+                kegiatan='$kegiatan' 
             WHERE 
                 id_agenda=" . $_GET['id_agenda'];
 
@@ -89,20 +85,6 @@ if (isset($_POST['submit'])) {
                                 });
                             </script>
                         </div>
-                        <?php if ($_SESSION['status'] == 'ADMIN') : ?>
-                            <div class="row" style="margin-bottom: 16px;">
-                                <div class="col-md-12">
-                                    <label for="pejabat" class="form-label">Pejabat</label>
-                                    <input type="text" class="form-control" id="pejabat" name="pejabat" value="<?= $row['pejabat']; ?>">
-                                </div>
-                            </div>
-                            <div class="row" style="margin-bottom: 16px;">
-                                <div class="col-md-12">
-                                    <label for="fotografer" class="form-label">Fotografer</label>
-                                    <input type="text" class="form-control" id="fotografer" name="fotografer" value="<?= $row['fotografer']; ?>">
-                                </div>
-                            </div>
-                        <?php endif; ?>
                         <div class="row" style="margin-bottom: 16px;">
                             <div class="col-md-12">
                                 <label for="kegiatan" class="form-label">Kegiatan</label>

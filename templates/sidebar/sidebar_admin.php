@@ -34,12 +34,31 @@
                             }
                             ?>"><span class="lnr lnr-apartment"></span> <span>Data Ruangan</span></a>
                 </li>
+                <li>
+                    <a href="index.php?page=data_rak_buku" class="
+							<?php
+                            if (isset($_GET['page'])) {
+                                if ($_GET['page'] == "data_rak_buku") echo "active";
+                                else if ($_GET['page'] == "edit_rak_buku") echo "active";
+                                else if ($_GET['page'] == "tambah_rak_buku") echo "active";
+                            }
+                            ?>"><span class="lnr lnr-apartment"></span> <span>Data Rak Buku</span></a>
+                </li>
+                <li>
+                    <a href="index.php?page=data_petugas" class="
+							<?php
+                            if (isset($_GET['page'])) {
+                                if ($_GET['page'] == "data_petugas") echo "active";
+                                else if ($_GET['page'] == "edit_petugas") echo "active";
+                                else if ($_GET['page'] == "tambah_petugas") echo "active";
+                            }
+                            ?>"><span class="lnr lnr-apartment"></span> <span>Data Petugas</span></a>
+                </li>
                 <li><a href="index.php?page=data_agenda" class="
                             <?php
                             if (isset($_GET['page'])) {
                                 if ($_GET['page'] == "data_agenda") echo "active";
-                                else if ($_GET['page'] == "tambah_agenda") echo "active";
-                                else if ($_GET['page'] == "edit_agenda") echo "active";
+                                else if ($_GET['page'] == "detail_agenda") echo "active";
                             }
                             ?>"><span class="lnr lnr-book"></span> <span>Agenda</span></a></li>
                 <li><a href="index.php?page=laporan" class="<?= isset($_GET['page']) ? (($_GET['page'] == "laporan") ? "active" : "")  : "" ?>"><span class="lnr lnr-file-empty"></span> <span>Laporan</span></a></li>

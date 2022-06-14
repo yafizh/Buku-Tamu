@@ -49,15 +49,13 @@ $id_ruangan = $_POST['id_ruangan'];
                     <th>Tempat</th>
                     <th>Tanggal</th>
                     <th>Waktu</th>
-                    <th>Pejabat</th>
-                    <th>Fotografer</th>
                     <th>Kegiatan</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 $no = 1;
-                $result = $mysqli->query("SELECT * FROM view_agenda WHERE (MONTH(tanggal)='$bulan' AND YEAR(tanggal)='$tahun') AND id_ruangan LIKE '%$id_ruangan%' ORDER BY id_agenda DESC");
+                $result = $mysqli->query("SELECT * FROM view_agenda WHERE (MONTH(tanggal)='$bulan' AND YEAR(tanggal)='$tahun') AND id_ruangan LIKE '%$id_ruangan%' AND jenis='INTERNAL' ORDER BY id_agenda DESC");
                 ?>
                 <?php if ($result->num_rows) : ?>
                     <?php while ($row = $result->fetch_assoc()) : ?>
@@ -66,8 +64,6 @@ $id_ruangan = $_POST['id_ruangan'];
                             <td><?= $row['nama_ruangan']; ?></td>
                             <td class="text-center"><?= $row['tanggal']; ?></td>
                             <td class="text-center"><?= $row['waktu']; ?></td>
-                            <td class="text-center"><?= $row['pejabat']; ?></td>
-                            <td class="text-center"><?= $row['fotografer']; ?></td>
                             <td class="text-center"><?= $row['kegiatan']; ?></td>
                         </tr>
                     <?php endwhile; ?>
