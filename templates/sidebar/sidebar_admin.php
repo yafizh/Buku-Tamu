@@ -22,7 +22,7 @@
                                 else if ($_GET['page'] == "edit_user") echo "active";
                                 else if ($_GET['page'] == "tambah_user") echo "active";
                             }
-                            ?>"><span class="lnr lnr-users"></span> <span>Data User</span></a>
+                            ?>"><span class="lnr lnr-user"></span> <span>Data User</span></a>
                 </li>
                 <li>
                     <a href="index.php?page=data_ruangan" class="
@@ -42,7 +42,7 @@
                                 else if ($_GET['page'] == "edit_rak_buku") echo "active";
                                 else if ($_GET['page'] == "tambah_rak_buku") echo "active";
                             }
-                            ?>"><span class="lnr lnr-apartment"></span> <span>Data Rak Buku</span></a>
+                            ?>"><span class="lnr lnr-list"></span> <span>Data Rak Buku</span></a>
                 </li>
                 <li>
                     <a href="index.php?page=data_petugas" class="
@@ -52,7 +52,7 @@
                                 else if ($_GET['page'] == "edit_petugas") echo "active";
                                 else if ($_GET['page'] == "tambah_petugas") echo "active";
                             }
-                            ?>"><span class="lnr lnr-apartment"></span> <span>Data Petugas</span></a>
+                            ?>"><span class="lnr lnr-users"></span> <span>Data Petugas</span></a>
                 </li>
                 <li><a href="index.php?page=data_agenda" class="
                             <?php

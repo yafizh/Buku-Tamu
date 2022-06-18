@@ -37,11 +37,11 @@ CREATE TABLE `tabel_ruangan` (
 );
 
 CREATE TABLE `tabel_rak_buku` (
-    id_rak INT NOT NULL AUTO_INCREMENT,
-    nomor_rak INT NOT NULL,
-    kategori_rak INT NOT NULL,
+    id_rak_buku INT NOT NULL AUTO_INCREMENT,
+    nomor_rak VARCHAR(255) NOT NULL,
+    kategori_rak VARCHAR(255) NOT NULL,
     keterangan VARCHAR(255) NOT NULL,
-    PRIMARY KEY (id_rak)
+    PRIMARY KEY (id_rak_buku)
 );
 
 CREATE TABLE `tabel_agenda` (

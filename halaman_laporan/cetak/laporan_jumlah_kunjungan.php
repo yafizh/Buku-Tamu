@@ -46,7 +46,59 @@ $tahun = $_POST['tahun'];
                     <th>Pengunjung</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="text-center">
+                <tr>
+                    <td>Januari</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Februari</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Januari</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Maret</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>April</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Mei</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Juni</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Agustus</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>September</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Oktober</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>November</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Desember</td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
         <div style="display: flex; justify-content: end;">

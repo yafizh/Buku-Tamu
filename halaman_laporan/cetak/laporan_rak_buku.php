@@ -48,6 +48,21 @@ require_once "../../utils/utils.php";
                 </tr>
             </thead>
             <tbody>
+            <?php
+                $no = 1;
+                $result = $mysqli->query("SELECT * FROM tabel_rak_buku ORDER BY nomor_rak");
+                ?>
+                <?php if ($result->num_rows) : ?>
+                    <?php while ($row = $result->fetch_assoc()) : ?>
+                        <tr>
+                            <td class="text-center"><?= $no++; ?></td>
+                            <td><?= $row['nomor_rak']; ?></td>
+                            <td><?= $row['kategori_rak']; ?></td>
+                            <td><?= $row['keterangan']; ?></td>
+                        </tr>
+                    <?php endwhile; ?>
+                <?php endif; ?>
+                <?php $result->free_result(); ?>
             </tbody>
         </table>
         <div style="display: flex; justify-content: end;">

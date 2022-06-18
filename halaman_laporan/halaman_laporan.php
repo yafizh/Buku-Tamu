@@ -257,25 +257,6 @@
 
 
             <div class="row">
-                <div class="col-md-4">
-                    <!-- PANEL NO CONTROLS -->
-                    <div class="panel">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Laporan Petugas</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="row" style="margin-bottom: 16px;">
-                                <div class="col-md-12">
-                                    <form action="halaman_laporan/cetak/laporan_petugas.php" method="POST" target="_blank">
-                                        <label class="form-label">Nama-nama Petugas</label>
-                                        <button type="submit" name="submit" class="form-control btn btn-primary">Cetak Laporan</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END PANEL NO CONTROLS -->
-                </div>
 
                 <div class="col-md-4">
                     <!-- PANEL NO CONTROLS -->
@@ -319,7 +300,7 @@
             </div>
 
             <div class="row">
-            <div class="col-md-4">
+                <div class="col-md-4">
                     <!-- PANEL NO CONTROLS -->
                     <div class="panel">
                         <div class="panel-heading">
@@ -360,6 +341,32 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="form-label" style="visibility: hidden;">Tombol</label>
+                                        <button type="submit" name="submit" class="form-control btn btn-primary">Cetak Laporan</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- END PANEL NO CONTROLS -->
+                </div>
+
+                <div class="col-md-4">
+                    <!-- PANEL NO CONTROLS -->
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Laporan Petugas</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form action="halaman_laporan/cetak/laporan_petugas.php" method="POST" target="_blank">
+                                <div class="row" style="margin-bottom: 16px;">
+                                    <div class="col-md-12">
+                                        <label for="">Bulan</label>
+                                        <input type="month" name="bulan" class="form-control" value="<?= Date('Y-m'); ?>">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-bottom: 16px;">
                                     <div class="col-md-12">
                                         <label class="form-label" style="visibility: hidden;">Tombol</label>
                                         <button type="submit" name="submit" class="form-control btn btn-primary">Cetak Laporan</button>

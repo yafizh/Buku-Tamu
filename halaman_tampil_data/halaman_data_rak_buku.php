@@ -56,7 +56,7 @@
                                     <tr>
                                         <td style="vertical-align: middle;"><?= $no++; ?></td>
                                         <td style="vertical-align: middle;"><?= $row['nomor_rak']; ?></td>
-                                        <td style="vertical-align: middle;"><?= $row['kategori']; ?></td>
+                                        <td style="vertical-align: middle;"><?= $row['kategori_rak']; ?></td>
                                         <td style="vertical-align: middle;"><?= $row['keterangan']; ?></td>
                                         <td class="text-center">
                                             <a href="index.php?page=edit_rak_buku&id_rak_buku=<?= $row['id_rak_buku']; ?>" class="btn btn-warning btn-xs"><span class="lnr lnr-pencil"></span></a>

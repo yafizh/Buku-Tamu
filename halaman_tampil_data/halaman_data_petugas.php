@@ -6,7 +6,7 @@
             <!-- OVERVIEW -->
             <div class="panel panel-headline">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Petugas</h3>
+                    <h3 class="panel-title">Petugas Bulan ini</h3>
                     <!-- <p class="panel-subtitle">Periode: 1 Januar 14, 2016 - Oct 21, 2016</p> -->
                 </div>
                 <div class="panel-body">
@@ -34,6 +34,8 @@
                             <tbody>
                                 <?php
                                 require_once "database/koneksi.php";
+                                require_once "utils/utils.php";
+
                                 $keyword = isset($_POST['keyword']) ? $_POST['keyword'] : "";
 
                                 $batas = 50;
@@ -43,11 +45,13 @@
                                 $sebelumnya = $halaman - 1;
                                 $selanjutnya = $halaman + 1;
 
-                                $data = $mysqli->query("SELECT * FROM tabel_petugas WHERE nama LIKE '%$keyword%'");
+                                $bulan = Date('m');
+                                $tahun = Date('Y');
+                                $data = $mysqli->query("SELECT * FROM tabel_petugas WHERE nama LIKE '%$keyword%' AND MONTH(tanggal)='$bulan' AND YEAR(tanggal)='$tahun'");
                                 $jumlah_data = mysqli_num_rows($data);
                                 $total_halaman = ceil($jumlah_data / $batas);
 
-                                $data_petugas = $mysqli->query("SELECT * FROM tabel_petugas WHERE nama LIKE '%$keyword%' ORDER BY nama LIMIT $halaman_awal, $batas");
+                                $data_petugas = $mysqli->query("SELECT * FROM tabel_petugas WHERE nama LIKE '%$keyword%' AND MONTH(tanggal)='$bulan' AND YEAR(tanggal)='$tahun' ORDER BY nama LIMIT $halaman_awal, $batas");
                                 $nomor = $halaman_awal + 1;
 
                                 $no = 1;
@@ -57,7 +61,14 @@
                                         <td style="vertical-align: middle;"><?= $no++; ?></td>
                                         <td style="vertical-align: middle;"><?= $row['nama']; ?></td>
                                         <td style="vertical-align: middle;"><?= $row['tugas']; ?></td>
-                                        <td style="vertical-align: middle;"><?= $row['bulan']; ?></td>
+                                        <td style="vertical-align: middle;">
+                                            <?php
+                                            $tanggal = $row['tanggal'];
+                                            $bulan = explode('-', $tanggal)[1];
+                                            $tahun = explode('-', $tanggal)[0];
+                                            ?>
+                                            <?= BULAN_DALAM_INDONESIA[$bulan - 1] . ' ' . $tahun; ?>
+                                        </td>
                                         <td class="text-center">
                                             <a href="index.php?page=edit_petugas&id_petugas=<?= $row['id_petugas']; ?>" class="btn btn-warning btn-xs"><span class="lnr lnr-pencil"></span></a>
                                             <a href="index.php?page=delete_petugas&id_petugas=<?= $row['id_petugas']; ?>" class="btn btn-danger btn-xs" onclick="return confirm('Yakin ingin menghapus data ini?')"><span class="lnr lnr-trash"></span></a>
