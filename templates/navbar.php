@@ -10,7 +10,10 @@
         <div id="navbar-menu">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/img/user.png" class="img-circle" alt="Avatar"> <span><?= $_SESSION['nama']; ?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <!-- <img src="assets/img/user.png" class="img-circle" alt="Avatar"> -->
+                        <span><?= $_SESSION['nama']; ?></span> <i class="icon-submenu lnr lnr-chevron-down"></i>
+                    </a>
                     <ul class="dropdown-menu">
                         <li><a href="index.php?page=ganti_password"><i class="lnr lnr-cog"></i> <span>Ganti Password</span></a></li>
                         <li><a href="index.php?page=logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>

@@ -113,25 +113,45 @@ AS
         tabel_agenda.id_ruangan=tabel_ruangan.id_ruangan;
 
 CREATE VIEW 
-    `view_jumlah_kunjungan_ruangan` 
+    `view_jumlah_kunjungan` 
 AS 
     SELECT 
-        tabel_ruangan.*,
-        (SELECT COUNT(id_tamu) FROM tabel_buku_tamu WHERE tabel_buku_tamu.id_ruangan=tabel_ruangan.id_ruangan) AS jumlah_kunjungan 
+        MONTH(tanggal) AS bulan, 
+        YEAR(tanggal) AS tahun, 
+        COUNT(id_tamu) AS jumlah 
     FROM 
-        tabel_ruangan;
+        tabel_buku_tamu 
+    GROUP BY 
+        YEAR(tanggal), MONTH(tanggal);
 
 CREATE VIEW 
-    `view_jumlah_kunjungan_per_petugas` 
+    `view_jumlah_kunjungan_agenda_dan_tamu` 
 AS 
+    (
     SELECT 
-        tabel_user.*,
-        (SELECT COUNT(id_tamu) FROM tabel_buku_tamu WHERE tabel_buku_tamu.id_user=tabel_user.id_user) AS jumlah_pengunjung 
+        'Umum' AS 'jenis',
+        MONTH(tanggal) AS bulan, 
+        YEAR(tanggal) AS tahun, 
+        COUNT(id_tamu) AS jumlah 
     FROM 
-        tabel_user 
+        tabel_buku_tamu 
+    GROUP BY 
+        YEAR(tanggal), MONTH(tanggal)
+    )
+    UNION ALL
+    (
+    SELECT 
+        jenis,
+        MONTH(tanggal) AS bulan, 
+        YEAR(tanggal) AS tahun, 
+        COUNT(id_agenda) AS jumlah 
+    FROM 
+        tabel_agenda 
     WHERE 
-        tabel_user.status = 'PETUGAS';
-
+        jenis='KUNJUNGAN SEKOLAH' 
+    GROUP BY 
+        YEAR(tanggal), MONTH(tanggal)
+    );
 
 INSERT INTO `tabel_user` (
     nama,
@@ -178,9 +198,9 @@ INSERT INTO `tabel_buku_tamu` (
     status_kunjungan,
     kesan_kunjungan 
 ) VALUES 
-(2, 2, '18631111', 'Nurcholis', 'Astambul', '2021-12-1', '07:00:00', '08:00:00', '111111111', 'Magang', 'TELAH BERKUNJUNG', 'oke'), 
-(2, 2, '18631112', 'Nursahid Arya Suyudi', 'Binuang', '2021-11-1', '07:00:00', '08:00:00', '222222222', 'Berkunjung ke PERPUSTAKAAN', 'TELAH BERKUNJUNG', 'oke'), 
+(2, 2, '18631111', 'Nurcholis', 'Astambul', '2022-6-1', '07:00:00', '08:00:00', '111111111', 'Magang', 'TELAH BERKUNJUNG', 'oke'), 
+(2, 2, '18631112', 'Nursahid Arya Suyudi', 'Binuang', '2022-5-1', '07:00:00', '08:00:00', '222222222', 'Berkunjung ke PERPUSTAKAAN', 'TELAH BERKUNJUNG', 'oke'), 
 (2, 2, '18631113', 'Diki Suti Prasetya', 'Banjarbaru', '2020-05-05', '07:00:00', '08:00:00', '333333333', 'Berkunjung', 'TELAH BERKUNJUNG', 'oke'), 
-(2, 2, '18631114', 'Andry', 'Binuang', '2021-12-04', '07:00:00', '08:00:00', '444444444', 'Bertamu', 'TELAH BERKUNJUNG', 'oke'), 
-(2, 2, '18631114', 'Rania Nor Aida', 'Astambul', '2021-10-01', '07:00:00', '08:00:00', '555555555', 'Baca Buku', 'TELAH BERKUNJUNG', 'oke'), 
-(2, 2, '18631115', 'Ahmad Rifai', 'Martapura', '2021-12-03', '07:00:00', '08:00:00', '666666', 'Magang', 'TELAH BERKUNJUNG', 'oke');
+(2, 2, '18631114', 'Andry', 'Binuang', '2022-6-04', '07:00:00', '08:00:00', '444444444', 'Bertamu', 'TELAH BERKUNJUNG', 'oke'), 
+(2, 2, '18631114', 'Rania Nor Aida', 'Astambul', '2022-10-01', '07:00:00', '08:00:00', '555555555', 'Baca Buku', 'TELAH BERKUNJUNG', 'oke'), 
+(2, 2, '18631115', 'Ahmad Rifai', 'Martapura', '2022-6-03', '07:00:00', '08:00:00', '666666', 'Magang', 'TELAH BERKUNJUNG', 'oke');

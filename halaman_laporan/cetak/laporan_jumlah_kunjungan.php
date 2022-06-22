@@ -47,58 +47,32 @@ $tahun = $_POST['tahun'];
                 </tr>
             </thead>
             <tbody class="text-center">
-                <tr>
-                    <td>Januari</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Februari</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Januari</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Maret</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>April</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Mei</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Juni</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>July</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Agustus</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>September</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Oktober</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>November</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Desember</td>
-                    <td></td>
-                </tr>
+                <?php
+                $result = $mysqli->query("SELECT * FROM view_jumlah_kunjungan WHERE tahun='$tahun'");
+                ?>
+                <?php if ($result->num_rows) : ?>
+                    <?php $data = $result->fetch_all(MYSQLI_ASSOC); ?>
+                    <?php for ($i = 0; $i < 12; $i++) : ?>
+                        <?php $exsist = false; ?>
+                        <?php foreach ($data as $datum) : ?>
+                            <?php if ($datum['bulan'] == ($i + 1)) : ?>
+                                <tr>
+                                    <td class="text-center"><?= BULAN_DALAM_INDONESIA[$i]; ?></td>
+                                    <td class="text-center"><?= $datum['jumlah']; ?></td>
+                                </tr>
+                                <?php $exsist = true; ?>
+                                <?php break; ?>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                        <?php if (!$exsist) : ?>
+                            <tr>
+                                <td class="text-center"><?= BULAN_DALAM_INDONESIA[$i]; ?></td>
+                                <td class="text-center"><?= 0; ?></td>
+                            </tr>
+                        <?php endif; ?>
+                    <?php endfor; ?>
+                <?php endif; ?>
+                <?php $result->free_result(); ?>
             </tbody>
         </table>
         <div style="display: flex; justify-content: end;">
