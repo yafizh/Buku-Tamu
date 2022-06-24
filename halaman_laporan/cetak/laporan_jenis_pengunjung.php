@@ -43,7 +43,7 @@ $tahun = $_POST['tahun'];
             <thead>
                 <tr>
                     <th>Bulan</th>
-                    <th>Peorangan</th>
+                    <th>Perorangan</th>
                     <th>Sekolah/Instansi</th>
                 </tr>
             </thead>
