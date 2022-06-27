@@ -16,15 +16,13 @@ if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $status = $_POST['status'];
-    $jam_kerja = $_POST['jam_kerja'];
 
     $sql = "UPDATE tabel_user 
             SET 
                 nama='$nama', 
                 username='$username', 
                 password='$password', 
-                status='$status',
-                jam_kerja='$jam_kerja' 
+                status='$status'
             WHERE 
                 id_user=" . $_GET['id_user'];
 
@@ -78,20 +76,13 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: 16px;">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <label for="status" class="form-label">Status</label>
                                 <select class="form-control" id="status" name="status">
                                     <option value="" disabled>Pilih Status</option>
                                     <option <?= ($row['status'] == 'ADMIN' ? 'selected' : ''); ?> value="ADMIN">Admin</option>
                                     <option <?= ($row['status'] == 'PETUGAS' ? 'selected' : ''); ?> value="PETUGAS">Petugas</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="jam_kerja" class="form-label">Jam Kerja</label>
-                                <select class="form-control" id="jam_kerja" name="jam_kerja">
-                                    <option value="" disabled selected>Pilih Jam Kerja</option>
-                                    <option <?= ($row['jam_kerja'] == 'PAGI | (08:00 - 11:00)' ? 'selected' : ''); ?> value="PAGI | (08:00 - 11:00)">PAGI | (08:00 - 11:00)</option>
-                                    <option <?= ($row['jam_kerja'] == 'SIANG | (13:00 - 16:00)' ? 'selected' : ''); ?> value="SIANG | (13:00 - 16:00)">SIANG | (13:00 - 16:00)</option>
+                                    <option <?= ($row['status'] == 'SEKOLAH' ? 'selected' : ''); ?> value="SEKOLAH">Sekolah</option>
                                 </select>
                             </div>
                         </div>

@@ -54,7 +54,7 @@ if (isset($_POST['ditolak'])) {
                 </div>
                 <div class="panel-body">
                     <div class="row" style="margin-bottom: 16px;">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <label for="id_ruangan" class="form-label">Tempat</label>
                             <?php $data_ruangan = $mysqli->query("SELECT * FROM tabel_ruangan ORDER BY nama"); ?>
                             <select class="form-control" id="id_ruangan" name="id_ruangan" required>
@@ -67,6 +67,10 @@ if (isset($_POST['ditolak'])) {
                                     <?php endif; ?>
                                 <?php endwhile; ?>
                             </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="jenis" class="form-label">Jenis Agenda</label>
+                            <input type="text" class="form-control" value="<?= $row['jenis']; ?>" readonly>
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 16px;">

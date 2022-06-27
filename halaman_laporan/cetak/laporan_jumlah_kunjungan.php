@@ -50,28 +50,26 @@ $tahun = $_POST['tahun'];
                 <?php
                 $result = $mysqli->query("SELECT * FROM view_jumlah_kunjungan WHERE tahun='$tahun'");
                 ?>
-                <?php if ($result->num_rows) : ?>
-                    <?php $data = $result->fetch_all(MYSQLI_ASSOC); ?>
-                    <?php for ($i = 0; $i < 12; $i++) : ?>
-                        <?php $exsist = false; ?>
-                        <?php foreach ($data as $datum) : ?>
-                            <?php if ($datum['bulan'] == ($i + 1)) : ?>
-                                <tr>
-                                    <td class="text-center"><?= BULAN_DALAM_INDONESIA[$i]; ?></td>
-                                    <td class="text-center"><?= $datum['jumlah']; ?></td>
-                                </tr>
-                                <?php $exsist = true; ?>
-                                <?php break; ?>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                        <?php if (!$exsist) : ?>
+                <?php $data = $result->fetch_all(MYSQLI_ASSOC); ?>
+                <?php for ($i = 0; $i < 12; $i++) : ?>
+                    <?php $exsist = false; ?>
+                    <?php foreach ($data as $datum) : ?>
+                        <?php if ($datum['bulan'] == ($i + 1)) : ?>
                             <tr>
                                 <td class="text-center"><?= BULAN_DALAM_INDONESIA[$i]; ?></td>
-                                <td class="text-center"><?= 0; ?></td>
+                                <td class="text-center"><?= $datum['jumlah']; ?></td>
                             </tr>
+                            <?php $exsist = true; ?>
+                            <?php break; ?>
                         <?php endif; ?>
-                    <?php endfor; ?>
-                <?php endif; ?>
+                    <?php endforeach; ?>
+                    <?php if (!$exsist) : ?>
+                        <tr>
+                            <td class="text-center"><?= BULAN_DALAM_INDONESIA[$i]; ?></td>
+                            <td class="text-center"><?= 0; ?></td>
+                        </tr>
+                    <?php endif; ?>
+                <?php endfor; ?>
                 <?php $result->free_result(); ?>
             </tbody>
         </table>
