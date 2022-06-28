@@ -70,7 +70,6 @@ $tahun = $_POST['tahun'];
                         </tr>
                     <?php endif; ?>
                 <?php endfor; ?>
-                <?php $result->free_result(); ?>
             </tbody>
         </table>
         <div style="display: flex; justify-content: end;">

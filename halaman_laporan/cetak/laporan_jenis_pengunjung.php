@@ -51,37 +51,34 @@ $tahun = $_POST['tahun'];
                 <?php
                 $result = $mysqli->query("SELECT * FROM view_jumlah_kunjungan_agenda_dan_tamu WHERE tahun='$tahun'");
                 ?>
-                <?php if ($result->num_rows) : ?>
-                    <?php $data = $result->fetch_all(MYSQLI_ASSOC); ?>
-                    <?php for ($i = 0; $i < 12; $i++) : ?>
-                        <tr>
-                            <td class="text-center"><?= BULAN_DALAM_INDONESIA[$i]; ?></td>
-                            <?php $exsist_umum = false; ?>
-                            <?php $exsist_instansi = false; ?>
-                            <?php foreach ($data as $datum) : ?>
-                                <?php if ($datum['bulan'] == ($i + 1) && $datum['jenis'] == 'Umum') : ?>
-                                    <td class="text-center"><?= $datum['jumlah']; ?></td>
+                <?php $data = $result->fetch_all(MYSQLI_ASSOC); ?>
+                <?php for ($i = 0; $i < 12; $i++) : ?>
+                    <tr>
+                        <td class="text-center"><?= BULAN_DALAM_INDONESIA[$i]; ?></td>
+                        <?php $exsist_umum = false; ?>
+                        <?php $exsist_instansi = false; ?>
+                        <?php foreach ($data as $datum) : ?>
+                            <?php if ($datum['bulan'] == ($i + 1) && $datum['jenis'] == 'Umum') : ?>
+                                <td class="text-center"><?= $datum['jumlah']; ?></td>
+                                <?php $exsist_umum = true; ?>
+                            <?php endif; ?>
+                            <?php if ($datum['bulan'] == ($i + 1) && $datum['jenis'] == 'KUNJUNGAN SEKOLAH') : ?>
+                                <?php if (!$exsist_umum) : ?>
+                                    <td class="text-center"><?= 0; ?></td>
                                     <?php $exsist_umum = true; ?>
                                 <?php endif; ?>
-                                <?php if ($datum['bulan'] == ($i + 1) && $datum['jenis'] == 'KUNJUNGAN SEKOLAH') : ?>
-                                    <?php if (!$exsist_umum) : ?>
-                                        <td class="text-center"><?= 0; ?></td>
-                                        <?php $exsist_umum = true; ?>
-                                    <?php endif; ?>
-                                    <td class="text-center"><?= $datum['jumlah']; ?></td>
-                                    <?php $exsist_instansi = true; ?>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                            <?php if (!$exsist_umum) : ?>
-                                <td class="text-center"><?= 0; ?></td>
+                                <td class="text-center"><?= $datum['jumlah']; ?></td>
+                                <?php $exsist_instansi = true; ?>
                             <?php endif; ?>
-                            <?php if (!$exsist_instansi) : ?>
-                                <td class="text-center"><?= 0; ?></td>
-                            <?php endif; ?>
-                        </tr>
-                    <?php endfor; ?>
-                <?php endif; ?>
-                <?php $result->free_result(); ?>
+                        <?php endforeach; ?>
+                        <?php if (!$exsist_umum) : ?>
+                            <td class="text-center"><?= 0; ?></td>
+                        <?php endif; ?>
+                        <?php if (!$exsist_instansi) : ?>
+                            <td class="text-center"><?= 0; ?></td>
+                        <?php endif; ?>
+                    </tr>
+                <?php endfor; ?>
             </tbody>
         </table>
         <div style="display: flex; justify-content: end;">
