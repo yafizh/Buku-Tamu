@@ -64,22 +64,14 @@ $id_ruangan = $_POST['id_ruangan'];
                             <td><?= $row['nama_ruangan']; ?></td>
                             <td class="text-center"><?= $row['tanggal']; ?></td>
                             <td class="text-center"><?= $row['waktu']; ?></td>
-                            <td class="text-center"><?= $row['kegiatan']; ?></td>
+                            <td><?= $row['kegiatan']; ?></td>
                         </tr>
                     <?php endwhile; ?>
                 <?php endif; ?>
                 <?php $result->free_result(); ?>
             </tbody>
         </table>
-        <div style="display: flex; justify-content: end;">
-            <div style="text-align: center; margin-top: 20px; padding: 10px; width: 200px;">
-                <span>Banjarbaru, <?= Date('d') ?> <?= BULAN_DALAM_INDONESIA[Date('m') - 1] ?> <?= Date('Y') ?></span>
-                <br>
-                <span>Mengetahui</span>
-                <br><br><br><br><br>
-                <span>ADMIN</span>
-            </div>
-        </div>
+        <?php include_once "footer.php"; ?>
     </div>
     <script>
         window.print();

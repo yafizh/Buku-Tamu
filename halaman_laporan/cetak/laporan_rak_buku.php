@@ -56,7 +56,7 @@ require_once "../../utils/utils.php";
                     <?php while ($row = $result->fetch_assoc()) : ?>
                         <tr>
                             <td class="text-center"><?= $no++; ?></td>
-                            <td><?= $row['nomor_rak']; ?></td>
+                            <td class="text-center"><?= $row['nomor_rak']; ?></td>
                             <td><?= $row['kategori_rak']; ?></td>
                             <td><?= $row['keterangan']; ?></td>
                         </tr>
@@ -65,15 +65,7 @@ require_once "../../utils/utils.php";
                 <?php $result->free_result(); ?>
             </tbody>
         </table>
-        <div style="display: flex; justify-content: end;">
-            <div style="text-align: center; margin-top: 20px; padding: 10px; width: 200px;">
-                <span>Banjarbaru, <?= Date('d') ?> <?= BULAN_DALAM_INDONESIA[Date('m') - 1] ?> <?= Date('Y') ?></span>
-                <br>
-                <span>Mengetahui</span>
-                <br><br><br><br><br>
-                <span>ADMIN</span>
-            </div>
-        </div>
+        <?php include_once "footer.php"; ?>
     </div>
     <script>
         window.print();

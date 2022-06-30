@@ -42,12 +42,14 @@ $tahun = $_POST['tahun'];
         <table>
             <thead>
                 <tr>
+                    <th>No</th>
                     <th>Bulan</th>
                     <th>Pengunjung</th>
                 </tr>
             </thead>
             <tbody class="text-center">
                 <?php
+                $no = 1;
                 $result = $mysqli->query("SELECT * FROM view_jumlah_kunjungan WHERE tahun='$tahun'");
                 ?>
                 <?php $data = $result->fetch_all(MYSQLI_ASSOC); ?>
@@ -56,6 +58,7 @@ $tahun = $_POST['tahun'];
                     <?php foreach ($data as $datum) : ?>
                         <?php if ($datum['bulan'] == ($i + 1)) : ?>
                             <tr>
+                                <td class="text-center"><?= $no++; ?></td>
                                 <td class="text-center"><?= BULAN_DALAM_INDONESIA[$i]; ?></td>
                                 <td class="text-center"><?= $datum['jumlah']; ?></td>
                             </tr>
@@ -65,6 +68,7 @@ $tahun = $_POST['tahun'];
                     <?php endforeach; ?>
                     <?php if (!$exsist) : ?>
                         <tr>
+                            <td class="text-center"><?= $no++; ?></td>
                             <td class="text-center"><?= BULAN_DALAM_INDONESIA[$i]; ?></td>
                             <td class="text-center"><?= 0; ?></td>
                         </tr>
@@ -72,15 +76,7 @@ $tahun = $_POST['tahun'];
                 <?php endfor; ?>
             </tbody>
         </table>
-        <div style="display: flex; justify-content: end;">
-            <div style="text-align: center; margin-top: 20px; padding: 10px; width: 200px;">
-                <span>Banjarbaru, <?= Date('d') ?> <?= BULAN_DALAM_INDONESIA[Date('m') - 1] ?> <?= Date('Y') ?></span>
-                <br>
-                <span>Mengetahui</span>
-                <br><br><br><br><br>
-                <span>ADMIN</span>
-            </div>
-        </div>
+        <?php include_once "footer.php"; ?>
     </div>
     <script>
         window.print();
