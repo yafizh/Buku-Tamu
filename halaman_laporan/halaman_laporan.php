@@ -297,6 +297,26 @@
                     </div>
                     <!-- END PANEL NO CONTROLS -->
                 </div>
+                
+                <div class="col-md-4">
+                    <!-- PANEL NO CONTROLS -->
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Laporan Latihan</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row" style="margin-bottom: 16px;">
+                                <div class="col-md-12">
+                                    <form action="halaman_laporan/cetak/" method="POST" target="_blank">
+                                        <label class="form-label">Latihan</label>
+                                        <button type="submit" name="submit" class="form-control btn btn-primary">Cetak Laporan</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END PANEL NO CONTROLS -->
+                </div>
             </div>
 
             <div class="row">

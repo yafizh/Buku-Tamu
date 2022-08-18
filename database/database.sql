@@ -16,7 +16,6 @@ CREATE TABLE `tabel_user` (
     username VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     status ENUM('ADMIN','PETUGAS', 'SEKOLAH') NOT NULL,
-    tanggal DATE NOT NULL,
     PRIMARY KEY (id_user)
 );
 
@@ -74,6 +73,18 @@ CREATE TABLE `tabel_buku_tamu` (
     kesan_kunjungan TEXT NOT NULL,
     PRIMARY KEY (id_tamu),
     FOREIGN KEY (id_user) REFERENCES tabel_user (id_user),
+    FOREIGN KEY (id_ruangan) REFERENCES tabel_ruangan (id_ruangan)
+);
+
+CREATE TABLE `tabel_event` (
+    id_event INT NOT NULL AUTO_INCREMENT,
+    id_ruangan INT NOT NULL,
+    nama VARCHAR(255) NOT NULL,
+    tanggal DATE NOT NULL,
+    waktu TIME NOT NULL,
+    kegiatan TEXT NOT NULL,
+    gambar VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id_event),
     FOREIGN KEY (id_ruangan) REFERENCES tabel_ruangan (id_ruangan)
 );
 
@@ -152,6 +163,20 @@ AS
     GROUP BY 
         YEAR(tanggal), MONTH(tanggal)
     );
+
+CREATE VIEW 
+    `view_event` 
+AS 
+    SELECT 
+        tabel_event.*,
+        tabel_ruangan.nama AS nama_ruangan, 
+        tabel_ruangan.ruangan 
+    FROM 
+        tabel_event 
+    INNER JOIN 
+        tabel_ruangan 
+    ON 
+        tabel_event.id_ruangan=tabel_ruangan.id_ruangan;
 
 INSERT INTO `tabel_user` (
     nama,

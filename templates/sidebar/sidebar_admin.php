@@ -54,6 +54,16 @@
                             }
                             ?>"><span class="lnr lnr-users"></span> <span>Data Petugas</span></a>
                 </li>
+                <li>
+                    <a href="index.php?page=data_event" class="
+							<?php
+                            if (isset($_GET['page'])) {
+                                if ($_GET['page'] == "data_event") echo "active";
+                                else if ($_GET['page'] == "edit_event") echo "active";
+                                else if ($_GET['page'] == "tambah_event") echo "active";
+                            }
+                            ?>"><span class="fa fa-calendar"></span> <span>Data Event</span></a>
+                </li>
                 <li><a href="index.php?page=data_agenda" class="
                             <?php
                             if (isset($_GET['page'])) {
